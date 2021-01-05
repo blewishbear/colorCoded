@@ -1,99 +1,125 @@
-# Flask React Project
+# Welcome to ColorCoded
+ColorCoded is an e commerce website that caters to coding themed clothing.  Here at ColorCoded, you can browse the t-shirt shop for coding themed shirts.  The site also host a t-shirt idea forum that allows users to share their t-shirt ideas.
 
-This is the backend for the Flask React project.
+# Introduction and Features
 
-## Getting started
+This project serves as the capstone that displays the knowledge and skills I've learned over the past 6 months.  The initial t-shirts designs on the site are coding themed, but with an ethnic twist. The site aims to relate the coding world with people of color.
 
-1. Clone this repository (only this branch)
+- **T-shirt Ideas forum**: Users will be able to CRUD their t-shit ideas to the forum.
+- **T-shirt Shop** Users can browse the t-shirt shop and add an order to the cart.
+- **Bonus! Code Repl: Users can write code in the site repl, take a screenshot of the code snippet, and print that to a shirt.
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+## Technologies Used
+**Backend**
+- Python (Flask)
+- SQLAlchemy Object Relational Mapper
+- Werkzeug
+- pyjwt. Generates javascript web tokens for user sessions
+- Alembic. Engine for database relational migrations
 
-2. Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+**Frontend**
+- React.js
+- Material UI
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Database and Schema
+![DB Schema](schema.png)
 
-   ```bash
-   pipenv shell
-   ```
+**users**
+- has many orders
+- has many ideas
 
-   ```bash
-   flask db upgrade
-   ```
+**idea**
+- belongs to user
+- has many daps
 
-   ```bash
-   flask seed all
-   ```
+**daps**
+- belongs to ideas
+- belongs to user
 
-   ```bash
-   flask run
-   ```
+**orders**
+- has many order_detail
+- many to many with products
+- belongs to users via user_id
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+**order_detail**
+- belongs to orders
+- belongs to products
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+**product**
+- belongs to color_id
+- belongs to size_id
+- belongs to category
+- many to many with orders
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+**product_variant**
+- has many order_detail
+- belongs to product
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+**category**
+- has many products
 
-## Deploy to Heroku
+## Frontend Routes
+**Splash**
+- / -> Home page welcomes new and existing users with cool graphic
 
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
+**Authentication**
+- /sign-up -> signs up for an account
+- /login -> Existing users sign-in
 
-   ```bash
-   heroku login
-   ```
+**Ideas**
+- /ideas/create -> Existing user can post an idea to the forum
+- /ideas -> Listing of all user ideas
+- /users/ideas/id -> show a list of individual user ideas
 
-5. Login to the heroku container registry
+**T-shirt Shop**
+- /t-shirt -> Listing of all t-shirts in the store
+- /t-shirt/id -> list of individual shirts
+- /cart -> shows a list of items in cart
 
-   ```bash
-   heroku container:login
-   ```
 
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
+## API Documentation
+**Resources**
+- Users
+- Ideas
+- Daps
+- Product
+- cart(local storage?)
+- Orders
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
+### Users
+**Endpoints for User**
+- Login POST -> /api/session
+- Sign Up POST -> /api/users
+- Log out DELETE -> /
+- Retrieve all ideas owned by single user GET -> /api/users/ideas
 
-8. Release your docker container to heroku
+### Ideas
+- Create an idea -> POST /api/ideas
+-  Retrieve all ideas -> GET /api/ideas
+-  Update an idea -> PUT /api/ideas/<id>
+-  Delete an idea -> DELETE /api/ideas/<id>
 
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
+### Daps
+- Give an Idea daps -> POST /api/ideas/daps
+- Remove a dap from and idea -> DELETE /api/ideas/daps
 
-9. set up your database:
+### Product
+- Retrieve a list of all products -> GET /api/t-shirt
+- Retrieve one t-shirt -> GET /api/t-shirt/<id>
 
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
+### Cart
+- Retrieve all items in cart -> GET /api/cart
+- Update order details in cart -> PUT /api/cart
+- Remove Item from cart -> DELETE /api/cart
 
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
-# colorCoded
+## Components
+- User
+- NavBar
+- Product
+- Cart
+- Ideas
+- Daps
+- Orders
+- Forms
