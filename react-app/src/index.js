@@ -5,6 +5,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
+    <div>You</div>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
