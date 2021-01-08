@@ -26,7 +26,6 @@ function App() {
   }
   return (
     <BrowserRouter>
-    <div>Hello</div>
       <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
         <Route path="/" exact={true}>

@@ -6,6 +6,16 @@ def seed_users():
 
     demo = User(username='Demo', email='demo@aa.io',
                 password='password')
+    steph = User(username='steph', email='steph@aa.io',
+                password='password')
+    kodi = User(username='kodi', email='kodi@aa.io',
+                password='')
+    dan = User(username='dan', email='dan@aa.io',
+                password='password')
+    james = User(username='james', email='james@aa.io',
+                password='password')
+    resa = User(username='resa', email='resa@aa.io',
+                password='password')
 
     db.session.add(demo)
 
@@ -16,5 +26,5 @@ def seed_users():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_users():
-    db.session.execute('TRUNCATE users;')
+    db.session.execute('TRUNCATE users RESTART IDENTITY;')
     db.session.commit()

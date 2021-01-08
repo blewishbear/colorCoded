@@ -41,7 +41,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
           <i className="fas fa-user-circle"></i>
         )}
         {authenticated && authenticated.profile_pic_url && (
-          <img className="usermenu__profile-pic" src={authenticated.profile_pic_url} />
+          <i className="fas fa-user-circle"></i>
         )}
       </div>
       <div className={open ? "usermenu__dropdown" : "usermenu__dropdown--hidden"}>
@@ -55,11 +55,11 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
           setAuthenticated={setAuthenticated}
         />
 
-        {!authenticated && (<hr />)}
+        {/* {!authenticated && (<hr />)}
 
         <div className="usermenu__option">
-          Host a home
-        </div>
+          Got an idea?
+        </div> */}
 
         {authenticated && (
           <>

@@ -1,9 +1,16 @@
 from .db import db
 
 
-class Category(db.Models):
-    __tablename__ - "categories"
-    id = db.Column(db.Integer, primary_key=True nullable=True)
-    category_name = db.Column(db.String(55), nullable=True)
+class Category(db.Model):
+    __tablename__ = "categories"
+    id = db.Column(db.Integer, primary_key=True, nullable=True)
+    name = db.Column(db.String(55), nullable=True)
 
-    products = db.relationship('Product', backpopulates='categories')
+    products = db.relationship('Product', back_populates='categories')
+
+    def to_dict(self):
+            return {
+                "id": self.id,
+                "name": self.name,
+                "products.to_dict()": self.products.to_dict(),
+            }
