@@ -21,5 +21,5 @@ def seed_colors():
     db.session.commit()
 
 def undo_colors():
-    db.session.execute('TRUNCATE colors RESTART IDENTITY;')
+    db.session.execute('TRUNCATE colors RESTART IDENTITY CASCADE;')
     db.session.commit()

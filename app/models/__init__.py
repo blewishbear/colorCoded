@@ -5,6 +5,6 @@ from .dap import Dap
 # from .category import Category
 # from .size import Size
 # from .color import Color
-# from .product import Product
 # from .order import Order
-# from .orderDetail import OrderDetail
+# from .product import Product
+# from .order_detail import OrderDetail

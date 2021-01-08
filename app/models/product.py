@@ -12,13 +12,13 @@ class Product(db.Model):
     title = db.Column(db.String(255), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     price = db.Column(db.Integer, nullable=False)
-    color_id = db.Column(db.Integer, nullable=False)
-    size_id = db.Column(db.Integer, nullable=False)
+    color_id = db.Column(db.Integer, db.ForeignKey('orders.id'), nullable=False)
+    size_id = db.Column(db.Integer, db.ForeignKey('sizes.id'), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
     img_url = db.Column(db.Text, nullable=False)
 
 
-    categories = db.relationship('Catergory', back_populates='products')
+    categories = db.relationship('Category', back_populates='products')
     colors = db.relationship('Color', back_populates='products')
     sizes = db.relationship('Size', back_populates='products')
     orders = db.relationship('Order', secondary=product_orders, back_populates='products')
@@ -32,10 +32,10 @@ class Product(db.Model):
                 "price": self.price,
                 "color_id": self.color_id,
                 "size_id": self.size_id,
-                "stock": self.stock
-                "categories": self.categories..to_dict(),
-                "colors": self.colors..to_dict(),
-                "sizes": self.sizes..to_dict(),
-                "orders": self.orders..to_dict(),
+                "stock": self.stock,
+                "categories": self.categories.to_dict(),
+                "colors": self.colors.to_dict(),
+                "sizes": self.sizes.to_dict(),
+                "orders": self.orders.to_dict(),
                 # "amenities": [x.to_dict() for x in self.amenities]
             }

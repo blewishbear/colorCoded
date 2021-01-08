@@ -1,8 +1,8 @@
 """create Dap table
 
-Revision ID: 3e86de4df83e
-Revises: acb6edf23377
-Create Date: 2021-01-08 10:36:59.226852
+Revision ID: 9eb64cb23335
+Revises: ebcbc50f557d
+Create Date: 2021-01-08 11:46:00.141958
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3e86de4df83e'
-down_revision = 'acb6edf23377'
+revision = '9eb64cb23335'
+down_revision = 'ebcbc50f557d'
 branch_labels = None
 depends_on = None
 

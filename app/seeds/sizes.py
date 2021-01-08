@@ -21,5 +21,5 @@ def seed_sizes():
     db.session.commit()
 
 def undo_sizes():
-    db.session.execute('TRUNCATE sizes RESTART IDENTITY;')
+    db.session.execute('TRUNCATE sizes RESTART IDENTITY CASCADE;')
     db.session.commit()

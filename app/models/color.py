@@ -13,5 +13,5 @@ class Color(db.Model):
             return {
                 "id": self.id,
                 "name": self.name,
-                "products.to_dict()": self.products.to_dict(),
+                "products": self.products.to_dict(),
             }
