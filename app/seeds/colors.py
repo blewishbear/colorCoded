@@ -12,8 +12,9 @@ def seed_colors():
     color3 = Color(name="yellow")
     color4 = Color(name="green")
     color5 = Color(name="white")
+    color6 = Color(name="black")
 
-    colors = [ color1, color2, color3, color4, color5 ]
+    colors = [ color1, color2, color3, color4, color5, color6 ]
 
     for color in colors:
         db.session.add(color)

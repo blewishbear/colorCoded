@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../../services/auth';
+import "./SignUpForm.css";
+
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [username, setUsername] = useState("");
@@ -39,10 +41,10 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
+    <form className="modal-content" onSubmit={onSignUp}>
+      <div className="signup-form__top">
+
+        <input placeholder="User Name"
           type="text"
           name="username"
           onChange={updateUsername}
@@ -50,8 +52,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
-        <input
+
+        <input placeholder="Email"
           type="text"
           name="email"
           onChange={updateEmail}
@@ -59,8 +61,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
-        <input
+
+        <input placeholder="Password"
           type="password"
           name="password"
           onChange={updatePassword}
@@ -68,8 +70,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
-        <input
+
+        <input placeholder="Repeat Password"
           type="password"
           name="repeat_password"
           onChange={updateRepeatPassword}

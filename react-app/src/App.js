@@ -6,6 +6,7 @@ import HomePage from "./components/SplashPage/HomePage"
 import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 
 import { authenticate } from "./services/auth";
+import ProductListing from "./components/Products/ProductListing.js";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,10 +37,10 @@ function App() {
         </ProtectedRoute> */}
         {/* <Route path='/listings/:id' exact={true}>
           <HouseProfilePage />
+      </Route>*/}
+        <Route path="/t-shirts/">
+          <ProductListing />
         </Route>
-        <Route path="/listings">
-          <ListingsIdx />
-        </Route> */}
       </Switch>
     </BrowserRouter>
   );

@@ -9,7 +9,7 @@ class OrderDetail(db.Model):
     quantity = db.Column(db.Integer, nullable=True)
 
     products = db.relationship('Product', back_populates='orderDetails')
-    orders = db.relationship('Order', back_populates='products')
+    orders = db.relationship('Order', back_populates='orderDetails')
 
     def to_dict(self):
             return {

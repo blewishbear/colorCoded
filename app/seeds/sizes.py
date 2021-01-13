@@ -14,7 +14,7 @@ def seed_sizes():
     size5 = Size(name="XL")
     size6 = Size(name="XXL")
 
-    sizes = [ size1, size2, size3, size4, size5 ]
+    sizes = [ size1, size2, size3, size4, size5, size6 ]
     for size in sizes:
         db.session.add(size)
 

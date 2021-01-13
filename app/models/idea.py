@@ -17,6 +17,6 @@ class Idea(db.Model):
                 "title": self.title,
                 "description": self.description,
                 "owner": self.owner.to_dict(),
-                "daps": self.daps.to_dict(),
+            
                 # "amenities": [x.to_dict() for x in self.amenities]
             }
