@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+header {
+  background-image: url('/Users/lerph/Desktop/colorCoded/react-app/src/images/curlyBoyz.jpg');
 
+}
 nav {
+  /* keeps nav at the top */
+  top:0;
     position: fixed;
     z-index: 1;
 
@@ -10,21 +15,23 @@ nav {
     height: 100px;
     width: 100vw;
     margin: none;
+    background-image: url('../../../images/curlyBoyz.jpg');
+    background-repeat: none;
 
-    background-color: teal;
+    /* background-color: rgb(1, 19, 2); */
 
     box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
 
   }
 
   .navbar__left {
-    width: auto;
+    /* width: auto;
     height: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    background-color: black;
+    background-color: black; */
   }
 
   /* .navbar__center {
@@ -59,29 +66,35 @@ nav {
     font-family: 'Open Sans', sans-serif;
     font-weight: 650;
     background: linear-gradient(to right, hsl(50, 34%, 41%) 0%, red  51%, green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
 
   }
   .logo:hover{
     background-position: right center;
   }
-  a:-webkit-any-link {
-    color:black;
+  .nav-btn{
+    color:white;
     text-decoration: none !important;
   }
 
   .navbar__link {
-    font-family: "Roboto", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 12px;
     /* font-weight: 600; */
-    padding: 10px;
     border-radius: 16px;
+    padding: 10px;
 
     color: black;
-    background-color: teal;
+    background-color: rgb(219, 235, 235);
     border:solid 1px rgba(0, 0 , 0, .2);
     text-decoration: none;
+    padding-right: 10px;
+  }
+  i{
+     color: black;
+  }
+  span{
+    color: black;
   }
 
   .navbar__link:hover {
