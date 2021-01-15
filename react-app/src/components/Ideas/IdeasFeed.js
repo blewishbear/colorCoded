@@ -17,7 +17,7 @@ export default function IdeasFeed() {
   }, []);
   return (
     <div className="idea__feed-wrapper">
-      <div><Link className="idea-btn" exact to="/ideas/create"> Got a new Idea?</Link></div>
+      <Link className="idea__form-btn" exact to="/ideas/create"> Got a new Idea?</Link>
         <CreateIdeaForm setIdeas={setIdeas} />
       <div className="idea__feed-container">
 

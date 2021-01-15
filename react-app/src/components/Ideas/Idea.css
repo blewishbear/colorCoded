@@ -1,23 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 .idea__feed-wrapper {
-    display: flex;
-}
-.idea-btn {
-    margin-top: 300px;
-    height: 5px;
-    width: 5px;
+    display: flex;;
 }
 .idea__feed-container {
-    top: 0;
+    /* top: 0; */
     position: relative;
     justify-content: center;
     display: block;
     width: 800px;
     height: auto;
 
-    margin-bottom: 20px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
+}
+.idea__form-btn {
+    margin-top: 200px;
 }
 
 .idea__form-input
@@ -34,6 +33,7 @@ textarea
 }
 
 .create-idea-container {
+    margin-top: 200px;
     margin-right: 0;
     position:sticky;
     border: 1px solid grey;
@@ -46,7 +46,7 @@ textarea
 .idea__container {
     border:rgb(15, 1, 15) 1px solid;
     color:rgb(15, 1, 15);
-    background-color:grey;
+    background-color:lightgrey;
     border-radius: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -56,5 +56,10 @@ textarea
 .idea__container button {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
+}
+.idea__container div{
+    padding: 1px;
+    display: flex;
+    justify-content: flex-end;
 }
