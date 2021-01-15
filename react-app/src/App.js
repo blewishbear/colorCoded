@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect,useContext } from "react";
+import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/Navbar/index.js";
 import HomePage from "./components/SplashPage/HomePage"
@@ -7,40 +7,48 @@ import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 
 import { authenticate } from "./services/auth";
 import ProductListing from "./components/Products/ProductListing.js";
+import UsersList from "./components/UsersList.js"
+import IdeasFeed from "./components/Ideas/IdeasFeed.js";
+import { useUser } from "./context/UserContext.js";
+import CreateIdeaForm from "./components/Ideas/IdeaForm.js";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    (async() => {
-      const user = await authenticate();
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
-      setLoaded(true);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async() => {
+  //     const user = await authenticate();
+  //     if (!user.errors) {
+  //       setAuthenticated(true);
+  //     }
+  //     setLoaded(true);
+  //   })();
+  // }, []);
 
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
+const { authenticated, setAuthenticated } = useUser()
+
   return (
     <BrowserRouter>
       <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
         <Route path="/" exact={true}>
-          <HomePage></HomePage>
+          <ProductListing />
+
+          {/* <HomePage></HomePage> */}
         </Route>
-        {/* <ProtectedRoute exact={true} path="/listings/create" authenticated={authenticated}>
-          <CreateHouseForm user={authenticated} />
-        </ProtectedRoute> */}
-        {/* <Route path='/listings/:id' exact={true}>
-          <HouseProfilePage />
-      </Route>*/}
         <Route path="/t-shirts/">
           <ProductListing />
         </Route>
+        <Route path="/ideas/">
+          <IdeasFeed />
+        </Route>
+        <Router path="/ideas/create">
+          <CreateIdeaForm />
+        </Router>
       </Switch>
     </BrowserRouter>
   );

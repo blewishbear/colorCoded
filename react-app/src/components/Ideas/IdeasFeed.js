@@ -1,23 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import Ideas from "./Ideas"
-export default function IdeasFeed() {
-  const [allIdeas, setIdeas] = useState([])
-  useEffect(() => {
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import IdeaThread from "./IdeaThread";
+import Ideas from "./IdeaThread";
+import CreateIdeaForm from "./IdeaForm";
+import "./Idea.css";
 
+export default function IdeasFeed() {
+  const [allIdeas, setIdeas] = useState([]);
+  useEffect(() => {
     (async () => {
-      const res = await fetch('/api/ideas');
+      const res = await fetch("/api/ideas");
       const parsedIdeas = await res.json();
       setIdeas(parsedIdeas);
-      console.log(parsedIdeas)
-    })()
-  }, [])
+      console.log(parsedIdeas);
+    })();
+  }, []);
   return (
-    <div>
-      <div className="title"><h1>Ever Have an idea for a t-shirt, but all you had to write on was a pizza box?</h1></div>
-      {allIdeas.map(idea => {
-        return <Ideas key={idea.id} idea={idea} />
-      })}
+    <div className="idea__feed-wrapper">
+      <div><Link className="idea-btn" exact to="/ideas/create"> Got a new Idea?</Link></div>
+        <CreateIdeaForm setIdeas={setIdeas} />
+      <div className="idea__feed-container">
+
+        <div className="title">
+          <h1>
+            News Feed
+          </h1>
+        </div>
+        {allIdeas.map((idea) => {
+          return <IdeaThread key={idea.id} idea={idea} />;
+        })}
+      </div>
     </div>
-  )
+  );
 }

@@ -17,6 +17,15 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       setErrors(user.errors);
     }
   };
+  const onLoginDemo = async (e) => {
+    e.preventDefault();
+    const user = await login("demo@aa.io","password");
+    if (!user.errors) {
+      setAuthenticated(true);
+    } else {
+      setErrors(user.errors);
+    }
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -31,7 +40,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className="login-form" onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -57,6 +66,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
         <button type="submit">Login</button>
+        <button onClick={onLoginDemo} type="submit">Demo User</button>
       </div>
     </form>
   );

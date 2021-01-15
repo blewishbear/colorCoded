@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-header {
-  background-image: url('/Users/lerph/Desktop/colorCoded/react-app/src/images/curlyBoyz.jpg');
 
-}
-nav {
+nav.nav-bar {
   /* keeps nav at the top */
   top:0;
     position: fixed;
@@ -15,23 +12,39 @@ nav {
     height: 100px;
     width: 100vw;
     margin: none;
-    background-image: url('../../../images/curlyBoyz.jpg');
     background-repeat: none;
 
-    /* background-color: rgb(1, 19, 2); */
+    /* background-size:; */
+
+    background-color: rgb(162, 201, 164);
 
     box-shadow: 0 0 20px 5px rgba(120, 120, 120, .1);
 
   }
+  .nav-bar nav{
+    background-color:rgba(10,10,10,0.3);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+
+ background-color:rgba(10,10,10,0.3);
+}
 
   .navbar__left {
-    /* width: auto;
-    height: 30px;
+
+    /* /* width: auto; */
+    height: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    background-color: black; */
+    /* background-color: rgb(22, 4, 4); */
   }
 
   /* .navbar__center {

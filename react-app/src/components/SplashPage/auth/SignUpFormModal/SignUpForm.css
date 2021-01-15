@@ -4,9 +4,15 @@ justify-content: center;
   border-radius: 10px;
   padding:10px;
   margin:10px 0;
-  box-shadow:0 0 15px 4px grey;
   border: none;
   width: 100%;
+}
+div input:hover{
+  box-shadow:0 0 15px 4px grey;
+
+}
+.login-form {
+  width: 200px;
 }
 
 
@@ -21,14 +27,16 @@ justify-content: center;
     min-height: auto; */
     /* max-height: 90vh; */
 
-    display: grid;
+
+    display: block;
+    /* display: grid;
     grid-template-columns: 250px 300px;
     grid-template-rows: 40px auto 300px 100px;
     grid-template-areas:
                         "top top"
                         "error error"
                         "left right"
-                        "bottom bottom";
+                        "bottom bottom"; */
   }
 
   .signup-form__top{

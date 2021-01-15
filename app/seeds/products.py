@@ -299,7 +299,7 @@ def seed_products():
     # cg4_xxl_white = Product(title="CurlyGirlAdult", category_id=1, price=20, stock=30, size_id=6, color_id=5, img_url="https://i.imgur.com/xVevx8c.png")
 
     react_native_xs_red = Product(title="ReactNative", category_id=1, price=20, color_id=1, size_id=1,  stock=30, img_url="https://i.imgur.com/g5KZ475.png")
-    react_native_sm_black = Product(title="ReactNative", category_id=1, price=20, color_id=6, size_id=2,  stock=30, img_url="https://i.imgur.com/qYgawqc.png")
+    react_native_sm_black = Product(title="ReactNative", category_id=1, price=20, color_id=6, size_id=2,  stock=30, img_url="https://i.imgur.com/oxTOQen.png")
     react_native_m_yellow = Product(title="ReactNative", category_id=1, price=20, color_id=3, size_id=3,  stock=30, img_url="https://i.imgur.com/bzqv8m5.png")
     react_native_lg_green = Product(title="ReactNative", category_id=1, price=20, color_id=4, size_id=4,  stock=30, img_url="https://i.imgur.com/5IJPyPa.png")
     react_native_xl_white = Product(title="ReactNative", category_id=1, price=20, color_id=5, size_id=5,  stock=30, img_url="https://i.imgur.com/qYgawqc.png")

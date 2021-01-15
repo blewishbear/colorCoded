@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard";
 
 const ProductListing = () => {
   const [allProducts, setAllProducts] = useState([]);
+
   useEffect(() => {
     (async () => {
       const res = await fetch("/api/t-shirts");

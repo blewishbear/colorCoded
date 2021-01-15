@@ -79,7 +79,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <div className='signup-btn'>
+        <button type="submit">Sign Up</button>
+      </div>
     </form>
   );
 };
