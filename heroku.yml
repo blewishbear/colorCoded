@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
   run:
-    web: /bin/sh -c gunicorn\
+    web: /bin/sh -c gunicorn\ app:app

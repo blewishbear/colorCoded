@@ -7,7 +7,7 @@ from app.models import db, Idea
 idea_routes = Blueprint('ideas', __name__)
 
 
-@idea_routes.route('/')
+@idea_routes.route('')
 def get_all_ideas():
     ideas = Idea.query.order_by(desc(Idea.id)).all()
     data = [idea.to_dict() for idea in ideas]

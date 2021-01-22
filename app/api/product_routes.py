@@ -5,7 +5,7 @@ from app.models import Product
 product_routes = Blueprint('t-shirts', __name__)
 
 
-@product_routes.route('/')
+@product_routes.route('')
 def get_all_products():
     products = Product.query.all()
     data = [product.to_dict() for product in products]
