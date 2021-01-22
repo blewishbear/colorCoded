@@ -2,7 +2,7 @@ import React, { useEffect, useState, useHistory } from "react";
 import { useUser } from "../../context/UserContext";
 import "./Idea.css";
 
-const CreateIdeaForm = ({ setIdeas }) => {
+const CreateIdeaForm = ({ setIdeas, onClose }) => {
   // const history = useHistory()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -27,6 +27,7 @@ const CreateIdeaForm = ({ setIdeas }) => {
       });
       const newIdea = await response.json();
       setIdeas((prevIdeas) => [newIdea, ...prevIdeas]);
+
     } catch (e) {
       console.log(e);
     }
@@ -53,12 +54,13 @@ const CreateIdeaForm = ({ setIdeas }) => {
       </div>
       <div className="idea__form-input">
         <textarea
+        placeholder="Description"
           name="description"
           value={description}
           onChange={updateDescription}
         />
       </div>
-      <button type="submit">Post idea</button>
+      <button type="submit" onClick={onClose}>Post idea</button>
     </form>
   );
 };

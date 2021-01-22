@@ -10,7 +10,7 @@ import ProductListing from "./components/Products/ProductListing.js";
 import UsersList from "./components/UsersList.js"
 import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
-import CreateIdeaForm from "./components/Ideas/IdeaForm.js";
+import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);

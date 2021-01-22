@@ -55,9 +55,9 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
           setAuthenticated={setAuthenticated}
         />
 
-        {/* {!authenticated && (<hr />)}
+        {/* {!authenticated && (<hr />)} */}
 
-        <div className="usermenu__option">
+        {/* <div className="usermenu__option">
           Got an idea?
         </div> */}
 

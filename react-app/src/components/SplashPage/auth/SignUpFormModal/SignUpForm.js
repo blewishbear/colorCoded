@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../../services/auth';
+import { useUser } from '../../../../context/UserContext'
 import "./SignUpForm.css";
 
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
+const SignUpForm = ({authenticated, setAuthenticated, onClose}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const { user, setUser } = useUser()
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
-      if (!user.errors) {
+      const userResponse = await signUp(username, email, password);
+      if (!userResponse.errors) {
         setAuthenticated(true);
+        setUser(user)
       }
     }
   };
@@ -80,7 +83,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div className='signup-btn'>
-        <button type="submit">Sign Up</button>
+        <button type="submit"onClick={onClose}>Sign Up</button>
       </div>
     </form>
   );

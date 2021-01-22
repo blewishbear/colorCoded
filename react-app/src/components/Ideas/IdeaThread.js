@@ -1,10 +1,21 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./Idea.css";
 
-const IdeaThread = ({ idea }) => {
-  console.log(idea);
-  const history = useHistory();
+const IdeaThread = ({ idea, setIdeas, handleDelete }) => {
+  const { id } = useParams();
+  const deleteIdea = async () => {
+    console.log(idea);
+    const response = await fetch(`/api/ideas/${idea.id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      setIdeas((ideas) => {
+        return ideas.filter((i) => i.id !== idea.id);
+      });
+    }
+  };
 
   return (
     <div className="idea__container">
@@ -23,13 +34,16 @@ const IdeaThread = ({ idea }) => {
       <div className="idea__btns">
         <div>
           <button type="submit" className="fas fa-fist-raised"></button>
-            
         </div>
         {/* <div>
           <button type="submit" className="edit__btn"></button>
         </div> */}
         <div>
-          <button type="submit" className="fas fa-dumpster"></button>
+          <button
+            type="submit"
+            className="fas fa-dumpster"
+            onClick={deleteIdea}
+          ></button>
         </div>
       </div>
     </div>

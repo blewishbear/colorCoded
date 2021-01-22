@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 .idea__feed-wrapper {
-    display: flex;;
+    display: flex;
+    /* background: beige; */
+    background-image:url("https://i.pinimg.com/originals/b3/07/c5/b307c5e5227d5a4b753c4d5307e7d981.jpg");
+    /* background-repeat: no-repeat cover; */
+
 }
 .idea__feed-container {
     /* top: 0; */
@@ -12,51 +16,77 @@
     height: auto;
 
     margin-top: 200px;
-    margin-left: auto;
+    margin-left: 165px;
     margin-right: auto;
 }
 .idea__form-btn {
-    margin-top: 200px;
+    display: flex;
+    margin-top: 150px;
+    margin-left: 30px;
+    text-decoration: none;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(162, 201, 164);
+    align-items: center;
+    justify-content: center;
+
 }
 
 .idea__form-input
 input
  {
-    width: 150px;
+    width: 200px;
+    margin-left: 2px;
 
 }
 .idea__form-input
-textarea
- {
-    width: 150px;
+textarea {
+    display: flex;
+    width: 300px;
+    height: 200px;
+    margin-left:50px ;
 
 }
 
 .create-idea-container {
-    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
     margin-right: 0;
-    position:sticky;
     border: 1px solid grey;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     border-radius: 10px;
     box-shadow: grey;
 }
 
+.create-idea-container button {
+    margin-top: 4px;
+    width: 200px;
+    background-color:rgb(162, 201, 164);
+    align-self: center;
+    border-radius: 10px;
+}
+
+
 .idea__container {
-    border:rgb(15, 1, 15) 1px solid;
+    /* border:rgb(15, 1, 15) 1px solid; */
+    padding: 7px;
     color:rgb(15, 1, 15);
-    background-color:lightgrey;
+    background-color:rgb(162, 201, 164);
     border-radius: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
     /* display:flex; */
 }
 
-.idea__container button {
+.idea-form-btn {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-self: center;
+    margin-top: 5px;
+    cursor: pointer;
 }
 .idea__container div{
     padding: 1px;

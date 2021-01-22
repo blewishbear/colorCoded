@@ -11,6 +11,19 @@ div input:hover{
   box-shadow:0 0 15px 4px grey;
 
 }
+div textarea {
+display: flex;
+justify-content: center;
+  border-radius: 10px;
+  padding:10px;
+  margin:10px 0;
+  border: none;
+  width: 100%;
+}
+div textarea:hover{
+  box-shadow:0 0 15px 4px grey;
+
+}
 .login-form {
   width: 200px;
 }

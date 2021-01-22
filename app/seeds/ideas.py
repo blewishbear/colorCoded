@@ -9,8 +9,8 @@ def seed_ideas():
 
 
     idea1 = Idea(user_id=1, title="CurlyBoyz", description="Draw an anime dude with an afro and a bunch of curly brackets for the hair!")
-    idea2 = Idea(user_id=2, title="My Block", description="Up up a block of code with curly brackets and inside, in bold letters put,'My Block!' with brick background")
-    idea3 = Idea(user_id=3, title="H1 Voice", description="Have the text 'Use Your h1 voice' with a someone speaking into a megaphone with `'<h1>'` on the side")
+    idea2 = Idea(user_id=2, title="My Block", description="Open up a block of code with curly brackets and inside, in bold letters put,'My Block!' with brick background")
+    idea3 = Idea(user_id=3, title="H1 Voice", description="Have the text 'Use Your h1 voice' with someone speaking into a megaphone with `< h1 >` on the side")
     idea4 = Idea(user_id=4, title="Fetch Request", description="Have a dog return a bone that says 'res.json' after fetching it")
     idea5 = Idea(user_id=5, title="King Boolean", description="Text asking 'Are you scared?' King Boo from mario holding True or False sign")
     idea6 = Idea(user_id=6, title="Office Space", description="Text asking 'If you could console.log that, that'd be greeeeaaat")

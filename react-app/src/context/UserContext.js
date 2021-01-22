@@ -10,7 +10,10 @@ const UserProvider = ({children}) => {
   const [loaded, setLoaded] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
 
+ useEffect(() => {
+   console.log(user)
 
+ }, [user])
 
   useEffect(() => {
     (async() => {

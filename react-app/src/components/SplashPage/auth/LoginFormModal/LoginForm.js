@@ -1,29 +1,36 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../../services/auth";
+import {useUser} from "../../../../context/UserContext"
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+
+const LoginForm = ({ onClose }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
+  const{ user, setUser, authenticated, setAuthenticated } = useUser();
   const [password, setPassword] = useState("");
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
-    if (!user.errors) {
+    const userResponse = await login(email, password);
+    if (!userResponse.errors) {
       setAuthenticated(true);
+      setUser(userResponse)
+      onClose()
     } else {
-      setErrors(user.errors);
+      setErrors(userResponse.errors);
     }
   };
   const onLoginDemo = async (e) => {
     e.preventDefault();
-    const user = await login("demo@aa.io","password");
-    if (!user.errors) {
+    const userResponse = await login("demo@aa.io","password");
+    if (!userResponse.errors) {
       setAuthenticated(true);
+      setUser(userResponse)
+      onClose()
     } else {
-      setErrors(user.errors);
+      setErrors(userResponse.errors);
     }
   };
 
@@ -71,5 +78,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     </form>
   );
 };
+
 
 export default LoginForm;
