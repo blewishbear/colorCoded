@@ -1,5 +1,5 @@
 import React, { useState, useEffect,useContext } from "react";
-import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/Navbar/index.js";
 import HomePage from "./components/SplashPage/HomePage"
@@ -40,15 +40,15 @@ const { authenticated, setAuthenticated } = useUser()
 
           {/* <HomePage></HomePage> */}
         </Route>
-        <Route path="/t-shirts/">
+        <Route path="/t-shirts">
           <ProductListing />
         </Route>
-        <Route path="/ideas/">
+        <Route path="/ideas">
           <IdeasFeed />
         </Route>
-        <Router path="/ideas/create">
+        <Route path="/ideas/create">
           <CreateIdeaForm />
-        </Router>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
