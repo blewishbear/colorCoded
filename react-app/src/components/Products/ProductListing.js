@@ -4,8 +4,11 @@ import { useParams } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 
-const ProductListing = () => {
+const ProductListing = ({setCartCount}) => {
   const [allProducts, setAllProducts] = useState([]);
+  const [cart, setCart] = useState(
+    localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {}
+  );
 
   useEffect(() => {
     (async () => {
@@ -14,6 +17,10 @@ const ProductListing = () => {
       setAllProducts(parsedProducts);
     })();
   }, []);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+  }, [cart])
 
   return (
     <div className="product__listing-wrapper">
@@ -23,7 +30,7 @@ const ProductListing = () => {
       </div>
       <div className="product__listing-container">
         {allProducts.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
+          return <ProductCard key={product.id} product={product} cart={cart} setCart={setCart} setCartCount={setCartCount} />;
         })}
       </div>
     </div>

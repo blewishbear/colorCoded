@@ -103,8 +103,10 @@ nav.nav-bar {
     text-decoration: none;
     padding-right: 10px;
   }
-  i{
+  .navbar__link i{
      color: black;
+     font-weight:bold;
+     padding: 3px;
   }
   span{
     color: black;

@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
 import "./NavBar.css";
+const logo = require("../../../assets/colorCodedTeesLogo.png")
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
+const NavBar = ({ authenticated, setAuthenticated, cartCount}) => {
   return (
     <header className="nav-overlay">
       <div className="">
         <nav className="nav-bar">
           <div className="navbar__left">
             <Link to="/">
-              <img src="../../../../logos/colorCodedTeesLogo.png" />
+              <img src={logo}/>
             </Link>
           </div>
           {/*-------searchbar---------*
@@ -23,7 +24,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
           <div className="navbar__right">
             {/* add user auth to this component when made */}
-            <Link className="nav-btn" to="/t-shirts">
+            <Link className="nav-btn" to="/">
               <h1>Home</h1>{" "}
             </Link>
             <Link className="nav-btn" to="/t-shirts">
@@ -34,7 +35,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
             </Link>
             <Link className="navbar__link" to="/cart">
               <i className="fas fa-cart-plus"></i>
-              <span>0</span>
+              <span>{cartCount}</span>
             </Link>
 
             <UserMenu

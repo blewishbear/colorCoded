@@ -13,6 +13,13 @@ import { useUser } from "./context/UserContext.js";
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 
 function App() {
+  const [cartCount, setCartCount] = useState(() => {
+    if(!localStorage.getItem("cart")){
+      return 0
+    }
+    const quantities = Object.values(JSON.parse(localStorage.getItem("cart")))
+    return quantities.reduce((a, b) => a + b, 0)
+  })
   // const [authenticated, setAuthenticated] = useState(false);
   // const [loaded, setLoaded] = useState(false);
 
@@ -33,15 +40,15 @@ const { authenticated, setAuthenticated } = useUser()
 
   return (
     <BrowserRouter>
-      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      <Switch>
         <Route path="/" exact={true}>
-          <ProductListing />
-
-          {/* <HomePage></HomePage> */}
+          <HomePage></HomePage>
         </Route>
+      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} cartCount={cartCount} />
+      <Switch>
+          {/* <ProductListing /> */}
+
         <Route path="/t-shirts">
-          <ProductListing />
+          <ProductListing setCartCount={setCartCount}/>
         </Route>
         <Route path="/ideas">
           <IdeasFeed />
