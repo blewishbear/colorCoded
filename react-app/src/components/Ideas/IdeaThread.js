@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import "./Idea.css";
 
-const IdeaThread = ({ idea, setIdeas, handleDelete }) => {
-  const { id } = useParams();
+const IdeaThread = ({ idea, setIdeas }) => {
   const deleteIdea = async () => {
     console.log(idea);
     const response = await fetch(`/api/ideas/${idea.id}`, {

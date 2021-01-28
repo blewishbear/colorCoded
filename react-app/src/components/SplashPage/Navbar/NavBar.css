@@ -13,6 +13,7 @@ nav.nav-bar {
     width: 100vw;
     margin: none;
     background-repeat: none;
+    font-family: "Open Sans", sans-serif;
 
     /* background-size:; */
 
@@ -44,6 +45,7 @@ nav.nav-bar {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    
     /* background-color: rgb(22, 4, 4); */
   }
 

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
 import "./Product.css";
 const ProductCard = ({ product, cart, setCart, setCartCount }) => {
-  const history = useHistory();
+
 
 
   const handleClick = (e) => {

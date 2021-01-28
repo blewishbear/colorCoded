@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import { login } from "../../../../services/auth";
 import {useUser} from "../../../../context/UserContext"
 import "./LoginForm.css"
@@ -8,7 +7,7 @@ import "./LoginForm.css"
 const LoginForm = ({ onClose }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
-  const{ user, setUser, authenticated, setAuthenticated } = useUser();
+  const{ setUser, setAuthenticated } = useUser();
   const [password, setPassword] = useState("");
 
   const onLogin = async (e) => {
@@ -42,9 +41,7 @@ const LoginForm = ({ onClose }) => {
     setPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
+
 
   return (
     <form className="login-form" onSubmit={onLogin}>

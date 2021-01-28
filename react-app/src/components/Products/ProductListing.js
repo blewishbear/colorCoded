@@ -1,6 +1,5 @@
-import { responsiveFontSizes } from "@material-ui/core";
+// import { responsiveFontSizes } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 

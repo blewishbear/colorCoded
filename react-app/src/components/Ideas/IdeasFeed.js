@@ -1,12 +1,9 @@
 import React, { useState, useEffect, } from "react";
-import { useParams, Link } from "react-router-dom";
 import IdeaThread from "./IdeaThread";
-import Ideas from "./IdeaThread";
 import IdeaFormModal from "./IdeaFormModal";
 import "./Idea.css";
 
 export default function IdeasFeed() {
-  const { id } = useParams()
   const [allIdeas, setIdeas] = useState([]);
   useEffect(() => {
     (async () => {

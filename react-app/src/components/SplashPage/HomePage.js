@@ -1,11 +1,11 @@
 import React from "react";
 import "./SplashPage.css";
-
+import curlyBoyz from "./Navbar"
 export default function HomePage() {
   return (
     <div
       style={{
-        backgroundColor: "white",
+        backgroundImage:`url("https://via.placeholder.com/500")`,
         width: "100vw",
         height: "100vh",
         margin: "0px",
@@ -15,7 +15,7 @@ export default function HomePage() {
     >
       <div className="splash-page">
        Welcome to ColorCodeTees
-        <img src="./curlyBoyz.JPG" alt="CurlyBoys" />
+        <img src={curlyBoyz} alt="CurlyBoys" />
         <div>
           Please Sign in
         </div>
