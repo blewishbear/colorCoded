@@ -22,9 +22,9 @@ export default function IdeasFeed() {
         <IdeaFormModal setIdeas={setIdeas} />
       <div className="idea__feed-container">
 
-        <div className="title">
+        <div className="idea__container-title">
           <h1>
-            News Feed
+            Ideas Feed
           </h1>
         </div>
         {allIdeas.map((idea) => {

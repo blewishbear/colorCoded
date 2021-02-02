@@ -16,7 +16,12 @@
     height: auto;
     margin-top: 200px;
     margin-left: 110px;
-    margin-right: auto;
+    margin-right: 110px;
+}
+.idea__container-title {
+    color:  black;
+    font-size: 30px;
+    font-family: "Roboto" sans-serif;
 }
 .idea__form-btn {
     display: flex;
@@ -32,6 +37,12 @@
     justify-content: center;
 
 }
+.idea__form-btn:hover {
+    box-shadow: grey;
+    border: 2px solid rgb(85, 85, 85);
+    /* background: rgb(238, 255, 0); */
+}
+
 
 .idea__form-input
 input
@@ -66,6 +77,13 @@ textarea {
     background-color:rgb(162, 201, 164);
     align-self: center;
     border-radius: 10px;
+}
+
+.create-idea-container button:hover{
+    border-radius: 10px;
+    box-shadow: grey;
+    border: 1px solid rgb(85, 85, 85);
+
 }
 
 

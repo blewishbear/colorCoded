@@ -17,17 +17,19 @@ const IdeaThread = ({ idea, setIdeas }) => {
 
   return (
     <div className="idea__container">
-      <p>
-        <span>Title: </span>
-        {idea.title}
+      <p className="idea__title">
+        Title:
+        <span>{idea.title}</span>
       </p>
-      <p>
-        Description: <span></span>
-        {idea.description}
+      <p className="idea__title">
+        Description:
+        <span>{idea.description}</span>
+
       </p>
-      <p>
-        By: <span></span>
-        {idea.owner.username}
+      <p className="idea__title">
+        By:
+        <span>{idea.owner.username}</span>
+
       </p>
       <div className="idea__btns">
         <div>

@@ -12,7 +12,7 @@ const NavBar = ({ authenticated, setAuthenticated, cartCount}) => {
       <div className="">
         <nav className="nav-bar">
           <div className="navbar__left">
-            <Link to="/">
+            <Link to="/t-shirts">
               <img src={logo} alt="color-coded-tees"/>
             </Link>
           </div>
@@ -25,7 +25,7 @@ const NavBar = ({ authenticated, setAuthenticated, cartCount}) => {
           <div className="navbar__right">
             {/* add user auth to this component when made */}
             <Link className="nav-btn" to="/t-shirts">
-              <h1>Home</h1>{" "}
+              {/* <h1>Home</h1>{" "} */}
             </Link>
             <Link className="nav-btn" to="/t-shirts">
               <h1>T-Shirt Shop</h1>{" "}
@@ -33,7 +33,7 @@ const NavBar = ({ authenticated, setAuthenticated, cartCount}) => {
             <Link className="nav-btn" to="/ideas">
               <h1>Idea Feed</h1>{" "}
             </Link>
-            <Link className="navbar__link" to="/cart">
+            <Link className="navbar__link" to="/t-shirts">
               <i className="fas fa-cart-plus"></i>
               <span>{cartCount}</span>
             </Link>
