@@ -25,7 +25,7 @@ const ProductListing = ({setCartCount}) => {
     <div className="product__listing-wrapper">
 
       <div className="product__listing-title">
-        <h1> Check out these cool Tees</h1>
+        <h1>Check out these cool Tees</h1>
       </div>
       <div className="product__listing-container">
         {allProducts.map((product) => {

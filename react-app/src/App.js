@@ -46,9 +46,11 @@ function App() {
         cartCount={cartCount}
       />
       <Switch>
-        {/* <Route path="/" exact={true}>
-          <HomePage></HomePage>
-        </Route> */}
+        <Route path="/" exact={true}>
+        <ProductListing setCartCount={setCartCount} />
+
+          {/* <HomePage></HomePage> */}
+        </Route>
         {/* <ProductListing /> */}
 
         <Route path="/t-shirts">

@@ -24,24 +24,27 @@ div textarea:hover{
   box-shadow:0 0 15px 4px grey;
 
 }
-.login-form {
-  width: 200px;
-}
 
 
 .modal-content {
     font-family: "Roboto", sans-serif;
     font-size: 12px;
 
-    margin: 0px 0px 80px;
+    /* margin: 0px 0px 80px; */
     padding: 20px;
+    height: 170px;
+    margin-bottom: 50px;
+    margin-top: none;
+    width: 300px;
 
     /* min-width: 600px;
     min-height: auto; */
     /* max-height: 90vh; */
 
 
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* display: grid;
     grid-template-columns: 250px 300px;
     grid-template-rows: 40px auto 300px 100px;

@@ -4,23 +4,28 @@ import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
 import "./NavBar.css";
-const logo = require("../../../assets/colorCodedTeesLogo.png")
+const logo = require("../../../assets/colorCodedTeesLogo.png");
 
-const NavBar = ({ authenticated, setAuthenticated, cartCount}) => {
+const NavBar = ({ authenticated, setAuthenticated, cartCount }) => {
   return (
     <header className="nav-overlay">
       <div className="">
         <nav className="nav-bar">
           <div className="navbar__left">
             <Link to="/t-shirts">
-              <img src={logo} alt="color-coded-tees"/>
+              <img src={logo} alt="color-coded-tees" />
             </Link>
           </div>
-          {/*-------searchbar---------*
-        <div className="navbar__center">
-          <div style={{ width: "300px", height: "40px", borderRadius: "20px", border: "1px solid black", textAlign: "center" }}> Search Bar Placeholder</div>
 
-        </div> */}
+          <div className="navbar__center">
+            <Link to="https://github.com/blewishbear">
+            <i className="fab fa-github-square"></i>
+            </Link>
+            <Link to="https://www.linkedin.com/in/mathias-anderson-42167b137/">
+            <i className="fab fa-linkedin"></i></Link>
+            <Link to="https://angel.co/u/mathias-anderson">
+            <i className="fab fa-angellist"></i></Link>
+          </div>
 
           <div className="navbar__right">
             {/* add user auth to this component when made */}
