@@ -18,13 +18,13 @@ const NavBar = ({ authenticated, setAuthenticated, cartCount }) => {
           </div>
 
           <div className="navbar__center">
-            <Link to="https://github.com/blewishbear">
+            <a href="https://github.com/blewishbear">
             <i className="fab fa-github-square"></i>
-            </Link>
-            <Link to="https://www.linkedin.com/in/mathias-anderson-42167b137/">
-            <i className="fab fa-linkedin"></i></Link>
-            <Link to="https://angel.co/u/mathias-anderson">
-            <i className="fab fa-angellist"></i></Link>
+            </a>
+            <a href="https://www.linkedin.com/in/mathias-anderson-42167b137/">
+            <i className="fab fa-linkedin"></i></a>
+            <a href="https://angel.co/u/mathias-anderson">
+            <i className="fab fa-angellist"></i></a>
           </div>
 
           <div className="navbar__right">
