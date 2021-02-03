@@ -27,7 +27,7 @@ const IdeaThread = ({ idea, setIdeas }) => {
 
       </p>
       <p className="idea__title">
-        By:
+        By: 
         <span>{idea.owner.username}</span>
 
       </p>
