@@ -1,21 +1,17 @@
 // import { responsiveFontSizes } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
+import {useRecoilState} from "recoil"
+import { productsState } from "../../App";
 
 import ProductCard from "./ProductCard";
 
 const ProductListing = ({setCartCount}) => {
-  const [allProducts, setAllProducts] = useState([]);
-  // const [cart, setCart] = useState(
+  const [products, setProducts ]= useRecoilState(productsState)
+    // const [cart, setCart] = useState(
   //   localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {}
   // );
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/t-shirts");
-      const parsedProducts = await res.json();
-      setAllProducts(parsedProducts);
-    })();
-  }, []);
+
   // useEffect(() => {
   //   localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -28,7 +24,7 @@ const ProductListing = ({setCartCount}) => {
         <h1>Check out these cool Tees</h1>
       </div>
       <div className="product__listing-container">
-        {allProducts.map((product) => {
+        {products.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>

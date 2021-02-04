@@ -1,15 +1,20 @@
 import React from "react"
-import { useRecoilState } from "recoil";
-import { cartState } from "../../App";
-import ProductCardInsideCart from "./ProductCardInsideCart";
+import { useRecoilState, } from "recoil";
+import { cartState, productsState } from "../../App";
+import CartProduct from "./CartProduct";
 
 
 export default function CartView() {
   //how you subscribe to states from other components
   const [cart, setCart] = useRecoilState(cartState)
+  const [products, setProducts] = useRecoilState(productsState)
+  console.log(products)
   return (
     <div>
-      <ProductCardInsideCart />
+      {cart.map(productId => {
+        return <CartProduct product={products[productId - 1]} />
+      })}
+
     </div>
   )
 }

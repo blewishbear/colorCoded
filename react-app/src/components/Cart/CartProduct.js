@@ -1,31 +1,26 @@
 import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import { productState } from "../../App"
+import { productsState } from "../../App"
 import { cartState } from "../../App"
 import ProductCard from '../Products/ProductCard';
 import './Cart.css'
 
-export default function ProductCardInsideCart({setCart, product}) {
-
-  const [allProducts, setAllProducts] = useRecoilState(productState)
-
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/t-shirts");
-      const parsedProducts = await res.json();
-      setAllProducts(parsedProducts);
-    })();
-  }, []);
+export default function CartProduct({ product }) {
+  const [cart, setCart] = useRecoilState(cartState);
+console.log(product)
+  // const [products, setProducts] = useRecoilState(productsState)
 
 const removeCart = () => {
-    setCart(previous => previous.filter(id => id !== product.id))
+  const newCart = cart.filter(id => id !== product.id)
+  setCart(newCart)
+    localStorage.setItem("cart", JSON.stringify(newCart))
   }
+  if(!product) return null
   return (
     <div className="cart__container">
       <div className="cart">
-      <ul>
-          {allProducts.map(product => (
-            <li key={product.id}>
+
+
               <div>
                 <img src={product.img_url} alt={product.title}></img> - ${product.price}
                 {/* {product.quantity}) */}
@@ -36,9 +31,7 @@ const removeCart = () => {
                   Remove from Cart
                 </button>
               </div>
-            </li>
-          ))}
-        </ul>
+
       </div>
     </div>
   )

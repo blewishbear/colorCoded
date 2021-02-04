@@ -13,6 +13,7 @@ const [cart, setCart] = useRecoilState(cartState)
   const addToCart = () =>{
     //previous is the current cart and we are adding a new product
     setCart(previous => [...previous, product.id])
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 
   //=========================== adding to cart using local storage =======================>
