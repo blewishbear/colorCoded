@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 
 import UserMenu from "./UserMenu";
 
 import "./NavBar.css";
+import { cartState } from "../../../App";
+import CartView from "../../Cart/CartView";
 const logo = require("../../../assets/colorCodedTeesLogo.png");
 
-const NavBar = ({ authenticated, setAuthenticated, cartCount }) => {
+
+
+const NavBar = ({ authenticated, setAuthenticated }) => {
+  const cart = useRecoilValue(cartState)
+
   return (
     <header className="nav-overlay">
       <div className="">
@@ -38,9 +45,9 @@ const NavBar = ({ authenticated, setAuthenticated, cartCount }) => {
             <Link className="nav-btn" to="/ideas">
               <h1>Idea Feed</h1>{" "}
             </Link>
-            <Link className="navbar__link" to="/t-shirts">
+            <Link className="navbar__link" to="/cart">
               <i className="fas fa-cart-plus"></i>
-              <span>{cartCount}</span>
+              <span>{cart.length}</span>
             </Link>
 
             <UserMenu

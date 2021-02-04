@@ -1,0 +1,34 @@
+.cart{
+    padding-top: 140px;
+    width: 50rem;
+    max-width: 90%;
+    margin: 2rem auto;
+  }
+
+  .cart p {
+    text-align: center;
+  }
+
+  .cart ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 900px;
+  }
+
+  .cart li {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #7c0699;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ .cart img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+ }

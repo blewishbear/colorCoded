@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RecoilRoot, atom } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/SplashPage/Navbar/index.js";
@@ -11,6 +12,18 @@ import ProductListing from "./components/Products/ProductListing.js";
 import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
+import CartView from "./components/Cart/CartView.js";
+//atoms are like pieces of state like state and setState
+export const cartState = atom({
+  key: "cartState",
+  //the state of the cart empty for now
+  default: []
+})
+export const productState = atom({
+  key: "productState",
+  
+  default: []
+})
 
 function App() {
   const [cartCount, setCartCount] = useState(() => {
@@ -39,31 +52,36 @@ function App() {
   const { authenticated, setAuthenticated } = useUser();
 
   return (
-    <BrowserRouter>
-      <NavBar
-        authenticated={authenticated}
-        setAuthenticated={setAuthenticated}
-        cartCount={cartCount}
-      />
-      <Switch>
-        <Route path="/" exact={true}>
-        <ProductListing setCartCount={setCartCount} />
+    <RecoilRoot>
+      <BrowserRouter>
+        <NavBar
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+          cartCount={cartCount}
+        />
+        <Switch>
+          <Route path="/" exact={true}>
+            <ProductListing setCartCount={setCartCount} />
 
-          {/* <HomePage></HomePage> */}
-        </Route>
-        {/* <ProductListing /> */}
+            {/* <HomePage></HomePage> */}
+          </Route>
+          {/* <ProductListing /> */}
 
-        <Route path="/t-shirts">
-          <ProductListing setCartCount={setCartCount} />
-        </Route>
-        <Route path="/ideas">
-          <IdeasFeed />
-        </Route>
-        <Route path="/ideas/create">
-          <CreateIdeaForm />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+          <Route path="/t-shirts">
+            <ProductListing setCartCount={setCartCount} />
+          </Route>
+          <Route path="/ideas">
+            <IdeasFeed />
+          </Route>
+          <Route path="/ideas/create">
+            <CreateIdeaForm />
+          </Route>
+          <Route path="/cart">
+          <CartView />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 

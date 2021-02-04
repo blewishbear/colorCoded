@@ -1,21 +1,30 @@
 import React from "react";
+import { useRecoilState } from "recoil";
+import { cartState } from "../../App";
 import "./Product.css";
-const ProductCard = ({ product, cart, setCart, setCartCount }) => {
+const ProductCard = ({ product }) => {
 
-
+const [cart, setCart] = useRecoilState(cartState)
 
   const handleClick = (e) => {
     // history.push(`/t-shirts/${product.id}`);
   };
-  const addToCart = (e) => {
-    if (cart[product.id]){
-      setCart({...cart, [product.id]: cart[product.id] + 1})
 
-    } else {
-      setCart({...cart, [product.id] : 1})
-    }
-    setCartCount((cartCount) => cartCount + 1)
-  };
+  const addToCart = () =>{
+    //previous is the current cart and we are adding a new product
+    setCart(previous => [...previous, product.id])
+  }
+
+  //=========================== adding to cart using local storage =======================>
+  // const addToCart = (e) => {
+  //   if (cart[product.id]){
+  //     setCart({...cart, [product.id]: cart[product.id] + 1})
+
+  //   } else {
+  //     setCart({...cart, [product.id] : 1})
+  //   }
+  //   setCartCount((cartCount) => cartCount + 1)
+  // };
 
 
   return (

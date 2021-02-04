@@ -5,9 +5,9 @@ import ProductCard from "./ProductCard";
 
 const ProductListing = ({setCartCount}) => {
   const [allProducts, setAllProducts] = useState([]);
-  const [cart, setCart] = useState(
-    localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {}
-  );
+  // const [cart, setCart] = useState(
+  //   localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {}
+  // );
 
   useEffect(() => {
     (async () => {
@@ -16,10 +16,10 @@ const ProductListing = ({setCartCount}) => {
       setAllProducts(parsedProducts);
     })();
   }, []);
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
 
-  }, [cart])
+  // }, [cart])
 
   return (
     <div className="product__listing-wrapper">
@@ -29,7 +29,7 @@ const ProductListing = ({setCartCount}) => {
       </div>
       <div className="product__listing-container">
         {allProducts.map((product) => {
-          return <ProductCard key={product.id} product={product} cart={cart} setCart={setCart} setCartCount={setCartCount} />;
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </div>
