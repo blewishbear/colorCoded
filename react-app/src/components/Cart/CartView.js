@@ -5,7 +5,6 @@ import CartProduct from "./CartProduct";
 
 
 export default function CartView() {
-  //how you subscribe to states from other components
   const [cart, setCart] = useRecoilState(cartState)
   const [products, setProducts] = useRecoilState(productsState)
   console.log(products)
