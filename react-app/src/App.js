@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { RecoilRoot, atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import { cartState, productsState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
 // import HomePage from "./components/SplashPage/HomePage";
 // import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
@@ -13,17 +13,7 @@ import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 import CartView from "./components/Cart/CartView.js";
-//atoms are like pieces of state like state and setState
-export const cartState = atom({
-  key: "cartState",
-  //the state of the cart empty for now
-  default: [],
-});
-export const productsState = atom({
-  key: "productsState",
 
-  default: [],
-});
 
 function App() {
   const [products, setProducts] = useRecoilState(productsState);

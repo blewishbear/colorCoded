@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { cartState, productsState } from "../../App";
+import { cartState, productsState } from "../../Atoms";
 import CartProduct from "./CartProduct";
 
 export default function CartView() {

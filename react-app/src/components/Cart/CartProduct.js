@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { productsState } from "../../App";
-import { cartState } from "../../App";
+import { cartState } from "../../Atoms";
 import ProductCard from "../Products/ProductCard";
 import "./Cart.css";
 

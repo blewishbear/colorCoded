@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 import UserMenu from "./UserMenu";
 
 import "./NavBar.css";
-import { cartState } from "../../../App";
+import { cartState } from "../../../Atoms";
 import CartView from "../../Cart/CartView";
 const logo = require("../../../assets/colorCodedTeesLogo.png");
 

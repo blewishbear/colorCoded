@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { cartState } from "../../App";
+import { cartState } from "../../Atoms";
 import "./Product.css";
 const ProductCard = ({ product }) => {
 

@@ -1,7 +1,7 @@
 // import { responsiveFontSizes } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import {useRecoilState} from "recoil"
-import { productsState } from "../../App";
+import { productsState } from "../../Atoms";
 
 import ProductCard from "./ProductCard";
 
