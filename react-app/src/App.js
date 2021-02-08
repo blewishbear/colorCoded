@@ -37,13 +37,12 @@ function App() {
   });
 console.log(cart)
   useEffect(() => {
-
-    if (!cart.length) {
-     let localCart = localStorage.getItem("cart")
-     localCart = JSON.parse(localCart)
-     if(localCart){
-       setCart(localCart)
-     }
+  if (!cart.length) {
+      let localCart = localStorage.getItem("cart")
+      localCart = JSON.parse(localCart)
+      if(localCart){
+        setCart(localCart)
+      }
     }
   }, []);
 
@@ -51,7 +50,6 @@ console.log(cart)
     (async () => {
       const res = await fetch("/api/t-shirts");
       const parsedProducts = await res.json();
-      console.log(parsedProducts);
       setProducts(parsedProducts);
     })();
   }, []);
