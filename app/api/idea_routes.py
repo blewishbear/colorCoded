@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from sqlalchemy import desc
 
-from app.models import db, Idea
+from app.models import db, Idea, Dap
 
 
 idea_routes = Blueprint('ideas', __name__)
@@ -35,3 +35,14 @@ def delete_idea(id):
     db.session.commit()
 
     return "Success it was deleted"
+
+
+@idea_routes.route("/<int:id>", methods=["POST"])
+def add_daps(id):
+    newDap = Dap()
+    newDap.user_id = request.get_json().get("user_id")
+    newDap.idea_id = request.get_json().get("idea_id")
+
+    db.session.add(newDap)
+    db.session.commit()
+    return newDap.to_dict()
