@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { cartState, productsState } from "./Atoms"
+import { cartState, productsState, ideaState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
 // import HomePage from "./components/SplashPage/HomePage";
 // import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
@@ -18,6 +18,8 @@ import CartView from "./components/Cart/CartView.js";
 function App() {
   const [products, setProducts] = useRecoilState(productsState);
   const [cart, setCart] = useRecoilState(cartState);
+  const [allIdeas, setIdeas] = useRecoilState(ideaState);
+
   const [cartCount, setCartCount] = useState(() => {
     if (!localStorage.getItem("cart")) {
       return 0;
@@ -43,6 +45,17 @@ console.log(cart)
       setProducts(parsedProducts);
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("/api/ideas");
+      const parsedIdeas = await res.json();
+      setIdeas(parsedIdeas);
+
+      console.log(parsedIdeas);
+    })();
+  }, []);
+
 
   // const [authenticated, setAuthenticated] = useState(false);
   // const [loaded, setLoaded] = useState(false);

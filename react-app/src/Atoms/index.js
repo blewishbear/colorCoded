@@ -14,4 +14,8 @@ export const productsState = atom({
 
   default: [],
 })
+export const ideaState = atom({
+  key: "ideaState",
 
+  default: [],
+})

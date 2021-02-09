@@ -2,9 +2,11 @@ import React, { useState, useEffect, } from "react";
 import IdeaThread from "./IdeaThread";
 import IdeaFormModal from "./IdeaFormModal";
 import "./Idea.css";
+import { useRecoilState } from "recoil"
+import { ideaState } from '../../Atoms';
 
 export default function IdeasFeed() {
-  const [allIdeas, setIdeas] = useState([]);
+  const [allIdeas, setIdeas] = useRecoilState(ideaState);
   useEffect(() => {
     (async () => {
       const res = await fetch("/api/ideas");
