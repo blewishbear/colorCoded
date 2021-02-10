@@ -7,7 +7,10 @@ class Idea(db.Model):
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    owner = db.relationship('User', back_populates='ideas')
+    user = db.relationship('User', back_populates='ideas')
+
+    daps = db.relationship(
+        "Dap", back_populates='idea', cascade="all, delete-orphan")
 
 
     def to_dict(self):
@@ -16,7 +19,7 @@ class Idea(db.Model):
                 "user_id": self.user_id,
                 "title": self.title,
                 "description": self.description,
-                "owner": self.owner.to_dict(),
-            
+                "user": self.user.to_shall_dict(),
+
                 # "amenities": [x.to_dict() for x in self.amenities]
             }

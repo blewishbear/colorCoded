@@ -34,6 +34,20 @@ export default function DapButton({ idea }) {
     }
   };
 
+  const deleteDap = async () => {
+    console.log(idea);
+    const response = await fetch(`/api/daps/${idea.id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      setIdeas((ideas) => {
+        return ideas.filter((i) => i.id !== idea.id);
+      });
+    }
+  };
+
+
   useEffect(() => {
     (async () => {
       const filteredDaps = daps.filter((dap) => {
@@ -50,6 +64,8 @@ export default function DapButton({ idea }) {
       return setLoaded(true);
     })();
   }, []);
+
+
 
 
   return (

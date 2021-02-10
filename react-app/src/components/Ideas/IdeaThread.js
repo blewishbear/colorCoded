@@ -3,6 +3,7 @@ import DapButton from './DapButton'
 import "./Idea.css";
 
 const IdeaThread = ({ idea, setIdeas }) => {
+  console.log(idea)
   const deleteIdea = async () => {
     console.log(idea);
     const response = await fetch(`/api/ideas/${idea.id}`, {
@@ -29,7 +30,7 @@ const IdeaThread = ({ idea, setIdeas }) => {
       </p>
       <p className="idea__title">
         By:
-        <span>{idea.owner.username}</span>
+        <span>{idea.user.username}</span>
 
       </p>
       <div className="idea__btns">

@@ -14,10 +14,11 @@ def get_all_ideas():
     return jsonify(data)
 
 
-@idea_routes.route('/<ideaId>')
-def get_all_daps_by_idea(ideaId):
-    daps = Dap.query.filter(Dap.idea_id == ideaId).all()
-    data = [dap.to_dict() for dap in daps]
+@idea_routes.route('/<id>')
+def get_one_idea(id):
+    ideas = Idea.query.filter(Idea.id == id).all()
+    data = [idea.to_dict() for idea in ideas]
+    
     return jsonify(data)
 
 
@@ -44,8 +45,13 @@ def delete_idea(id):
     return "Success it was deleted"
 
 
-@idea_routes.route("/<int:id>", methods=["POST"])
-def add_daps(id):
+
+@idea_routes.route("/<int:userId>", methods=["POST"])
+def add_daps(userId, ideaId):
+    daps = Dap.query.filter(Dap.user_id == userId, Dap.idea_id == ideaId)
+    if daps.count() > 0:
+        return "idea already dapped"
+
     newDap = Dap()
     newDap.user_id = request.get_json().get("user_id")
     newDap.idea_id = request.get_json().get("idea_id")

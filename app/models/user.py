@@ -10,7 +10,8 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
 
-  ideas = db.relationship('Idea', back_populates='owner')
+  ideas = db.relationship('Idea', back_populates='user', cascade="all, delete-orphan")
+  daps = db.relationship('Dap', back_populates='user', cascade="all, delete-orphan")
   orders = db.relationship("Order", back_populates="user")
 
 
@@ -32,5 +33,14 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "ideas": [idea.to_dict() for idea in self.ideas],
+
+    }
+
+  def to_shall_dict(self):
+    return {
+      "id": self.id,
+      "username": self.username,
+      "email": self.email,
     }
