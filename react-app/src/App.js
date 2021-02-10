@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { cartState, productsState, ideaState } from "./Atoms"
+import { cartState, productsState, ideaState, dapState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
 // import HomePage from "./components/SplashPage/HomePage";
 // import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
@@ -19,6 +19,8 @@ function App() {
   const [products, setProducts] = useRecoilState(productsState);
   const [cart, setCart] = useRecoilState(cartState);
   const [allIdeas, setIdeas] = useRecoilState(ideaState);
+  const [daps, setDaps] = useRecoilState(dapState);
+  const { user } = useUser()
 
   const [cartCount, setCartCount] = useState(() => {
     if (!localStorage.getItem("cart")) {
@@ -52,7 +54,17 @@ console.log(cart)
       const parsedIdeas = await res.json();
       setIdeas(parsedIdeas);
 
-      console.log(parsedIdeas);
+
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`/api/daps`);
+      const parsedDaps = await res.json();
+      setDaps(parsedDaps);
+
+      console.log(parsedDaps);
     })();
   }, []);
 

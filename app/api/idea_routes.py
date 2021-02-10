@@ -14,6 +14,13 @@ def get_all_ideas():
     return jsonify(data)
 
 
+@idea_routes.route('/<ideaId>')
+def get_all_daps_by_idea(ideaId):
+    daps = Dap.query.filter(Dap.idea_id == ideaId).all()
+    data = [dap.to_dict() for dap in daps]
+    return jsonify(data)
+
+
 @idea_routes.route("/create", methods=['POST'])
 def create_idea():
     newIdea = Idea()
@@ -45,4 +52,7 @@ def add_daps(id):
 
     db.session.add(newDap)
     db.session.commit()
-    return newDap.to_dict()
+    dapByIdea = Dap.query.filter(Dap.idea_id == request.get_json().get("idea_id")).all()
+    data = [dap.to_dict() for dap in dapByIdea]
+
+    return jsonify(data)

@@ -18,6 +18,54 @@
     margin-left: 110px;
     margin-right: 110px;
 }
+.dap__btn-container {
+display: flex;
+
+
+}
+.idea__btns {
+display: flex;
+;
+}
+#dapped__btn {
+    display: flex;
+    color: rgb(162, 201, 164);
+    background-color: transparent;
+    text-shadow: 0px 0px 3px black, 0px 0px 3px black;
+
+    border: none;
+
+
+}
+#undapped__btn {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    text-shadow: 0px 0px 3px black, 0px 0px 3px black;
+    color: rgb(238 134 137);
+}
+#undapped__btn:hover{
+    color: rgb(162, 201, 164);
+}
+#trash__btn {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: black
+}
+#trash__btn:hover{
+    color: red;
+    margin-left: 0px;
+}
+
+
+.dap-count {
+    justify-content: space-between;
+    color: black;
+    font-size: 17px;
+    margin-left: 4px;
+    text-shadow:none;
+}
 .idea__container-title {
     color:  black;
     font-size: 30px;

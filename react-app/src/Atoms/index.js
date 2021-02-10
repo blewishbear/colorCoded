@@ -19,3 +19,8 @@ export const ideaState = atom({
 
   default: [],
 })
+export const dapState = atom({
+  key: "dapState",
+
+  default: [],
+})

@@ -1,4 +1,5 @@
 import React from "react";
+import DapButton from './DapButton'
 import "./Idea.css";
 
 const IdeaThread = ({ idea, setIdeas }) => {
@@ -27,21 +28,22 @@ const IdeaThread = ({ idea, setIdeas }) => {
 
       </p>
       <p className="idea__title">
-        By: 
+        By:
         <span>{idea.owner.username}</span>
 
       </p>
       <div className="idea__btns">
-        <div>
+        {/* <div>
           <button type="submit" className="fas fa-fist-raised"></button>
-        </div>
+        </div> */}
+          <DapButton idea={idea}/>
         {/* <div>
           <button type="submit" className="edit__btn"></button>
         </div> */}
         <div>
-          <button
+          <button id="trash__btn"
             type="submit"
-            className="fas fa-dumpster"
+            className="fas fa-trash-alt"
             onClick={deleteIdea}
           ></button>
         </div>
