@@ -14,22 +14,22 @@ def get_all_daps_by_user(userId):
     return jsonify(data)
 
 
-@dap_routes.route('/')
+@dap_routes.route('')
 def get_all_daps():
     daps = Dap.query.all()
     data = [dap.to_dict() for dap in daps]
     return jsonify(data)
 
 
-# @dap_routes.route('/<int:ideaId>', methods=["DELETE"])
-# def delete_daps(ideaId):
-#     daps = Dap.query.filter(Dap.idea_id == ideaId).all()
-#     for dap in daps:
-#         db.session.delete(dap)
-#     db.session.commit()
+@dap_routes.route('/<int:ideaId>', methods=["POST"])
+def delete_daps(ideaId):
+    userId = request.get_json().get("user_id")
+    dap = Dap.query.filter(Dap.user_id == userId).filter(Dap.idea_id == ideaId).first()
+    db.session.delete(dap)
+    # print("HERE IS THE DAPPPPPPPPPPPPP", dap)
+    db.session.commit()
 
+    dapByIdea = Dap.query.filter(Dap.idea_id == request.get_json().get("idea_id")).all()
+    data = [dap.to_dict() for dap in dapByIdea]
 
-
-
-
-    return "Success it was deleted"
+    return jsonify(data)

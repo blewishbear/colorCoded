@@ -20,6 +20,8 @@ function App() {
   const [cart, setCart] = useRecoilState(cartState);
   const [allIdeas, setIdeas] = useRecoilState(ideaState);
   const [daps, setDaps] = useRecoilState(dapState);
+  const [loaded, setLoaded] = useState(false);
+
   const { user } = useUser()
 
   const [cartCount, setCartCount] = useState(() => {
@@ -62,7 +64,8 @@ console.log(cart)
     (async () => {
       const res = await fetch(`/api/daps`);
       const parsedDaps = await res.json();
-      setDaps(parsedDaps);
+      await setDaps(parsedDaps);
+      return setLoaded(true)
 
       console.log(parsedDaps);
     })();
@@ -87,7 +90,7 @@ console.log(cart)
   // }
   const { authenticated, setAuthenticated } = useUser();
 
-  return (
+  return loaded && (
     <BrowserRouter>
       <NavBar
         authenticated={authenticated}

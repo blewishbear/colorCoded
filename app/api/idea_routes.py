@@ -18,7 +18,7 @@ def get_all_ideas():
 def get_one_idea(id):
     ideas = Idea.query.filter(Idea.id == id).all()
     data = [idea.to_dict() for idea in ideas]
-    
+
     return jsonify(data)
 
 
@@ -47,10 +47,11 @@ def delete_idea(id):
 
 
 @idea_routes.route("/<int:userId>", methods=["POST"])
-def add_daps(userId, ideaId):
+def add_daps(userId):
+    ideaId = request.get_json().get("idea_id")
     daps = Dap.query.filter(Dap.user_id == userId, Dap.idea_id == ideaId)
     if daps.count() > 0:
-        return "idea already dapped"
+        return {"error": "dap already dapped"}
 
     newDap = Dap()
     newDap.user_id = request.get_json().get("user_id")

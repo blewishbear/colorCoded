@@ -41,6 +41,10 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
     setDescription(e.target.value);
   };
 
+  if(!user){
+    return <p>Please log</p>
+  }
+
   return (
     <form className="create-idea-container" onSubmit={createIdea}>
       <div className="idea__form-input">

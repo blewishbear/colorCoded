@@ -17,7 +17,7 @@ export default function DapButton({ idea }) {
     console.log("these are daps", dapsByIdea);
 
     try {
-      const response = await fetch(`/api/ideas/${idea.id}`, {
+      const response = await fetch(`/api/ideas/${user.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,37 +27,43 @@ export default function DapButton({ idea }) {
           idea_id: idea.id,
         }),
       });
-      const parsedDaps = await response.json()
-      await setDapsByIdea(parsedDaps)
+      const parsedDaps = await response.json();
+      await setDapsByIdea(parsedDaps);
+      await setDapped(true);
     } catch (e) {
       console.log(e);
     }
   };
 
   const deleteDap = async () => {
-    console.log(idea);
+
     const response = await fetch(`/api/daps/${idea.id}`, {
-      method: "DELETE",
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        user_id: user.id,
+        idea_id: idea.id,
+      }),
     });
 
     if (response.ok) {
-      setIdeas((ideas) => {
-        return ideas.filter((i) => i.id !== idea.id);
-      });
+      const parsedDaps = await response.json()
+      await setDapsByIdea(parsedDaps)
+      return setDapped(false)
     }
   };
 
-
   useEffect(() => {
     (async () => {
+      console.log("filtered daps", daps);
       const filteredDaps = daps.filter((dap) => {
-        return dap.idea_id === idea.id;
+        return dap.idea.id === idea.id;
       });
       await setDapsByIdea(filteredDaps);
 
       console.log("daps by idea", filteredDaps);
       filteredDaps.map((dap) => {
-        if (dap.user_id === user.id) {
+        if (dap.user.id === user.id) {
           return setDapped(true);
         }
       });
@@ -65,25 +71,24 @@ export default function DapButton({ idea }) {
     })();
   }, []);
 
-
-
-
   return (
     loaded && (
-      <div >
+      <div>
         <div className="dap__btn-container">
           {dapped ? (
-            <button id="dapped__btn" type="submit" className="fas fa-fist-raised" >
+            <button id="dapped__btn" type="submit" onClick={deleteDap}>
+              <i className="fas fa-fist-raised"></i>
 
               <div className="dap-count">{dapsByIdea.length}</div>
             </button>
           ) : (
-            <button id="undapped__btn"
+            <button
+              id="undapped__btn"
               type="submit"
               className="fas fa-fist-raised"
               onClick={dapIdea}
             >
-               <div className="dap-count">{dapsByIdea.length}</div>
+              <div className="dap-count">{dapsByIdea.length}</div>
             </button>
           )}
         </div>
