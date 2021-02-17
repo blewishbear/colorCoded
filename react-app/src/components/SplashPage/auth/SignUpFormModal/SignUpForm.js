@@ -45,7 +45,7 @@ const SignUpForm = ({authenticated, setAuthenticated, onClose}) => {
 
   return (
     <form className="modal-content" onSubmit={onSignUp}>
-      {/* <div className="signup-form__top">
+      <div className="signup-form__top">
 
         <input placeholder="User Name"
           type="text"
@@ -53,7 +53,7 @@ const SignUpForm = ({authenticated, setAuthenticated, onClose}) => {
           onChange={updateUsername}
           value={username}
         ></input>
-      </div> */}
+      </div>
       <div>
 
         <input placeholder="Email"
