@@ -30,7 +30,7 @@ function IdeaFormModal({setIdeas}) {
         open={open}
         onClose={handleClose}
       >
-        <DialogContent style={{width:"500px", height:"400px", display:"flex", justifyContent:"center"}}>
+        <DialogContent style={{width:"500px", height:"350px", display:"flex", justifyContent:"center", marginBottom: "30px"}}>
           <CreateIdeaForm setIdeas={setIdeas} onClose={handleClose} />
         </DialogContent>
       </Dialog>

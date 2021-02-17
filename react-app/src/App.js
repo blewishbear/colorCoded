@@ -23,6 +23,9 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   const { user } = useUser()
+  useEffect(() => {
+    console.log(user)
+  }, [user])
 
   const [cartCount, setCartCount] = useState(() => {
     if (!localStorage.getItem("cart")) {
@@ -67,7 +70,7 @@ console.log(cart)
       await setDaps(parsedDaps);
       return setLoaded(true)
 
-      console.log(parsedDaps);
+
     })();
   }, []);
 

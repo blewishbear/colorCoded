@@ -52,7 +52,7 @@ const LoginForm = ({ onClose }) => {
       </div>
       <div className="login__form-input">
         <div>
-          <label htmlFor="email">Email</label>
+          {/* <label htmlFor="email">Email</label> */}
           <input
             name="email"
             type="text"
@@ -62,7 +62,7 @@ const LoginForm = ({ onClose }) => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          {/* <label htmlFor="password">Password</label> */}
           <input
             name="password"
             type="password"
@@ -70,8 +70,11 @@ const LoginForm = ({ onClose }) => {
             value={password}
             onChange={updatePassword}
           />
-          <button type="submit">Login</button>
-          <button onClick={onLoginDemo} type="submit">Demo User</button>
+          <div className="login__btn-container">
+            <button type="submit">Login</button>
+            <button onClick={onLoginDemo} type="submit">Demo User</button>
+
+          </div>
         </div>
       </div>
     </form>

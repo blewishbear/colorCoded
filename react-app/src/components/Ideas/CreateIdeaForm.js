@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useUser } from "../../context/UserContext";
+import LoginForm from "../SplashPage/auth/LoginFormModal/LoginForm";
 import "./Idea.css";
 
 const CreateIdeaForm = ({ setIdeas, onClose }) => {
@@ -8,7 +9,7 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
   const [description, setDescription] = useState("");
   const { user } = useUser();
 
-  // useEffect(() => {
+  useEffect(() => {}, []);
 
   const createIdea = async (e) => {
     e.preventDefault();
@@ -27,7 +28,6 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
       });
       const newIdea = await response.json();
       setIdeas((prevIdeas) => [newIdea, ...prevIdeas]);
-
     } catch (e) {
       console.log(e);
     }
@@ -40,34 +40,41 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
-
-  if(!user){
-    return <p>Please log</p>
+  console.log("is there a user?", user);
+  if (!user || user.errors) {
+    return (
+      <>
+        <LoginForm onClose={onClose}/>
+      </>
+    );
+  } else {
+    return (
+      <form className="create-idea-container" onSubmit={createIdea}>
+        <div className="idea__form-input">
+          <input
+            name="title"
+            placeholder="Title"
+            type="text"
+            value={title}
+            onChange={updateTitle}
+          />
+        </div>
+        <div className="idea__form-input">
+          <textarea
+            placeholder="Description"
+            name="description"
+            value={description}
+            onChange={updateDescription}
+          />
+        </div>
+        <button type="submit" onClick={onClose}>
+          Post idea
+        </button>
+      </form>
+    );
   }
-
-  return (
-    <form className="create-idea-container" onSubmit={createIdea}>
-      <div className="idea__form-input">
-        <input
-          name="title"
-          placeholder="Title"
-          type="text"
-          value={title}
-          onChange={updateTitle}
-        />
-      </div>
-      <div className="idea__form-input">
-        <textarea
-        placeholder="Description"
-          name="description"
-          value={description}
-          onChange={updateDescription}
-        />
-      </div>
-      <button type="submit" onClick={onClose}>Post idea</button>
-    </form>
-  );
 };
+
 export default CreateIdeaForm;
 
 // })()

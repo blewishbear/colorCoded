@@ -69,7 +69,7 @@ export default function DapButton({ idea }) {
       });
       return setLoaded(true);
     })();
-  }, []);
+  }, [user]);
 
   return (
     loaded && (
