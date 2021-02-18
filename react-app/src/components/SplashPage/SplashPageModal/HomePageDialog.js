@@ -28,7 +28,7 @@ function HomePageDialog(props) {
         open={open}
         onClose={handleClose}
       >
-        <DialogContent style={{width:"400px", height:"200px", display:"flex", justifyContent:"center", marginBottom: "30px"}}>
+        <DialogContent style={{width:"600px", height:"1000px", display:"flex", justifyContent:"center", marginBottom: "30px"}}>
           <HomePage {...props} onClose={handleClose} />
         </DialogContent>
       </Dialog>

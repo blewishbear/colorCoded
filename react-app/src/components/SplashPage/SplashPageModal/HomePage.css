@@ -1,5 +1,8 @@
-.splash-page{
-    height: 500px;
-    width: 500px;
-    margin-top: -2000px;
+.splash-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+.splash-page img {
+   height: 250px;
+   width: auto;
 }

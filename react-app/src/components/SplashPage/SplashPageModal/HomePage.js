@@ -1,26 +1,18 @@
 import React from "react";
-// import "./SplashPage.css";
-import "./curlyBoyz.JPG"
+import "./HomePage.css";
+const cb = require("../../../assets/curlyBoyz.JPG");
+const rn = require("../../../assets/reactNative.png");
+const mern = require("../../../assets/mern.png");
 export default function HomePage() {
   return (
-    <div
-      // style={{
-      //   backgroundImage:`url("https://via.placeholder.com/500")`,
-      //   width: "100vw",
-      //   height: "100vh",
-      //   margin: "0px",
-      //   padding: "0px",
-      //   display: "flex"
-      // }}
-    >
+    <div>
       <div className="splash-page">
        Welcome to ColorCodeTees
-        <img src="curlyBoyz.JPG" alt="CurlyBoys" />
-        <div>
-          Please Sign in
-        </div>
+        <div><img src={cb} alt="CurlyBoys" /></div>
+        <div><img src={rn} alt="CurlyBoys" /></div>
+        <div><img src={mern} alt="CurlyBoys" /></div>
+        
       </div>
-      Content
     </div>
   );
 }
