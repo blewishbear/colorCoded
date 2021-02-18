@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { cartState, productsState, ideaState, dapState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
-import HomePage from "./components/SplashPage/HomePage";
+// import HomePage from "./components/SplashPage/HomePage";
 // import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 
 // import { authenticate } from "./services/auth";
@@ -102,9 +102,9 @@ console.log(cart)
       />
       <Switch>
         <Route path="/" exact={true}>
-          {/* <ProductListing setCartCount={setCartCount} /> */}
+          <ProductListing setCartCount={setCartCount} />
 
-          <HomePage />
+          {/* <HomePage></HomePage> */}
         </Route>
         {/* <ProductListing /> */}
 
