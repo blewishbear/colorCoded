@@ -3,7 +3,6 @@ import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { cartState, productsState, ideaState, dapState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
-// import HomePage from "./components/SplashPage/HomePage";
 // import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
 
 // import { authenticate } from "./services/auth";
@@ -13,6 +12,7 @@ import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 import CartView from "./components/Cart/CartView.js";
+import HomePageDialog from "./components/SplashPage/SplashPageModal/HomePageDialog";
 
 
 function App() {
@@ -104,7 +104,7 @@ console.log(cart)
         <Route path="/" exact={true}>
           <ProductListing setCartCount={setCartCount} />
 
-          {/* <HomePage></HomePage> */}
+          <HomePageDialog />
         </Route>
         {/* <ProductListing /> */}
 
