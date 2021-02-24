@@ -7,11 +7,11 @@ import "./Cart.css";
 
 export default function CartProduct({ product }) {
   const [cart, setCart] = useRecoilState(cartState);
-  console.log(product);
   // const [products, setProducts] = useRecoilState(productsState)
 
   const removeCart = () => {
-    const newCart = cart.filter((id) => id !== product.id);
+    let newCart = Array.from(cart);
+    newCart.splice(newCart.indexOf(product.id), 1);
     setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
