@@ -12,7 +12,7 @@ import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 import CartView from "./components/Cart/CartView.js";
-import HomePageDialog from "./components/SplashPage/SplashPageModal/HomePageDialog";
+import HomePage from "./components/SplashPage/SplashPageModal/HomePage";
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
     const quantities = Object.values(JSON.parse(localStorage.getItem("cart")));
     return quantities.reduce((a, b) => a + b, 0);
   });
-console.log(cart)
+
   useEffect(() => {
   if (!cart.length) {
       let localCart = localStorage.getItem("cart")
@@ -102,9 +102,9 @@ console.log(cart)
       />
       <Switch>
         <Route path="/" exact={true}>
-          <ProductListing setCartCount={setCartCount} />
+          {/* <ProductListing setCartCount={setCartCount} /> */}
 
-          <HomePageDialog />
+          <HomePage />
         </Route>
         {/* <ProductListing /> */}
 

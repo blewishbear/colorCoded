@@ -3,9 +3,7 @@ import DapButton from './DapButton'
 import "./Idea.css";
 
 const IdeaThread = ({ idea, setIdeas }) => {
-  console.log(idea)
   const deleteIdea = async () => {
-    console.log(idea);
     const response = await fetch(`/api/ideas/${idea.id}`, {
       method: "DELETE",
     });

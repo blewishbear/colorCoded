@@ -11,7 +11,6 @@ export default function IdeasFeed() {
       const parsedIdeas = await res.json();
       setIdeas(parsedIdeas);
 
-      console.log(parsedIdeas);
     })();
   }, []);
 

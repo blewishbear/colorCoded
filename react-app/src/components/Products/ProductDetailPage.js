@@ -14,7 +14,6 @@ const ProductDetailPage = () => {
         const getProduct = async () => {
             const response = await fetch(`/api/t-shirts/${color_id}/${size_id}`)
             const body = await response.json()
-            console.log(body)
 
             setProduct(body.product)
             isLoaded(true)

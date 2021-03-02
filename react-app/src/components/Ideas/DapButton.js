@@ -14,7 +14,7 @@ export default function DapButton({ idea }) {
 
   const dapIdea = async (e) => {
     e.preventDefault();
-    console.log("these are daps", dapsByIdea);
+
 
     try {
       const response = await fetch(`/api/ideas/${user.id}`, {
@@ -55,13 +55,11 @@ export default function DapButton({ idea }) {
 
   useEffect(() => {
     (async () => {
-      console.log("filtered daps", daps);
       const filteredDaps = daps.filter((dap) => {
         return dap.idea.id === idea.id;
       });
       await setDapsByIdea(filteredDaps);
 
-      console.log("daps by idea", filteredDaps);
       filteredDaps.map((dap) => {
         if (dap.user.id === user.id) {
           return setDapped(true);

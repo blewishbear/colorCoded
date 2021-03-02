@@ -40,7 +40,7 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
-  console.log("is there a user?", user);
+  
   if (!user || user.errors) {
     return (
       <>

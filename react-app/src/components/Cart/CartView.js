@@ -8,7 +8,6 @@ export default function CartView() {
   const [products, setProducts] = useRecoilState(productsState);
   return (
     <div className="cart__container">
-      {console.log(cart)}
       {!cart.length ? (
         <div className="empty__cart">
           <p>No Items in the cart</p>
