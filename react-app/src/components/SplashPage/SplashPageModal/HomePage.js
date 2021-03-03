@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomePage.css";
-import LoginFormDialog from "../auth/LoginFormModal"
+import SplashFormDialog from "../SplashPageModal/index"
 const cb = require("../../../assets/curlyBoyz.JPG");
 const rn = require("../../../assets/reactNative.png");
 const mern = require("../../../assets/jpg.jpg");
@@ -10,7 +10,7 @@ export default function HomePage() {
     <div>
       <div className="splash-page">
         <div className="splash-left">
-          <LoginFormDialog />
+          <SplashFormDialog />
           {/* <div className="mern">
             <img
               src="https://i.imgur.com/nVmqbdM.png"
@@ -23,10 +23,10 @@ export default function HomePage() {
               </div>
             </div> */}
             <div className="native">
-              <img src={rn} alt="CurlyBoys" />
+              {/* <img src={rn} alt="CurlyBoys" /> */}
             </div>
             <div className="curlyG">
-              <img src={cg} alt="CurlyBoys" />
+              {/* <img src={cg} alt="CurlyBoys" /> */}
             </div>
         </div>
         <div className="splash-right">
