@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import LoginForm from '../auth/LoginFormModal';
+import LoginForm from '../auth/LoginFormModal/LoginForm';
 
 import { Dialog } from '@material-ui/core'
 import DialogContent from '@material-ui/core/DialogContent';
 
-function SplashFormDialog(props) {
+function LoginFormDialog(props) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -22,7 +22,8 @@ function SplashFormDialog(props) {
           className="login-button"
           onClick={handleClickOpen}
         >Log In</div>
-      )}
+        )}
+        <div className="welcome-text">Welcome to Color Coded Tees!</div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -35,4 +36,4 @@ function SplashFormDialog(props) {
   );
 }
 
-export default SplashFormDialog;
+export default LoginFormDialog;

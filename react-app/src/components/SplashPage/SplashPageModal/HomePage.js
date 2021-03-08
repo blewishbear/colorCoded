@@ -1,16 +1,16 @@
 import React from "react";
 import "./HomePage.css";
-import SplashFormDialog from "../SplashPageModal/index"
+import LoginFormDialog from "../SplashPageModal/index"
+import SignUpFormDialog from "../SplashPageModal/SignUpIndex"
 const cb = require("../../../assets/curlyBoyz.JPG");
 const rn = require("../../../assets/reactNative.png");
 const mern = require("../../../assets/jpg.jpg");
 const cg = require("../../../assets/CurlyGirls4.png");
 export default function HomePage() {
   return (
-    <div>
       <div className="splash-page">
         <div className="splash-left">
-          <SplashFormDialog />
+          <LoginFormDialog />
           {/* <div className="mern">
             <img
               src="https://i.imgur.com/nVmqbdM.png"
@@ -29,10 +29,15 @@ export default function HomePage() {
               {/* <img src={cg} alt="CurlyBoys" /> */}
             </div>
         </div>
-        <div className="splash-right">
-
+         <div className="splash-right">
+            <div className="mern">
+              <SignUpFormDialog />
+            {/* <img
+              src="https://i.imgur.com/nVmqbdM.png"
+              alt="CurlyBoys"
+            /> */}
+          </div>
         </div>
       </div>
-    </div>
   );
 }
