@@ -9,6 +9,7 @@ const cg = require("../../../assets/CurlyGirls4.png");
 export default function HomePage() {
   return (
     <div className="splash-page">
+        <div className="welcome-text">Welcome to ColorCodeTees!</div>
       <div className="splash-buttons">
         <LoginFormDialog />
       <SignUpFormDialog />

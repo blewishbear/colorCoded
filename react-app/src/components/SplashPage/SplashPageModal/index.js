@@ -23,7 +23,7 @@ function LoginFormDialog(props) {
           onClick={handleClickOpen}
         >Log In</button>
         )}
-        <div>Welcome to Color Coded Tees!</div>
+      
       <Dialog
         open={open}
         onClose={handleClose}

@@ -8,11 +8,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "native totum"
-                        "curlG totum";
+  grid-template-areas:
+    "native totum"
+    "curlG totum";
   border: 1px solid green;
 }
- .home-image {
+.home-image {
   height: 100%;
   width: 100%;
   background-position: center;
@@ -23,12 +24,10 @@
   background-size: cover;
   grid-area: totum;
   background-image: url(https://i.imgur.com/ZebO85s.png);
-
 }
 .curlyG {
   background-image: url(https://i.imgur.com/N4WM5U4.png);
   grid-area: curlG;
-
 }
 .native {
   grid-area: native;
@@ -36,11 +35,6 @@
   background-color: black;
   background-size: contain;
 }
-
-
-
-
-
 
 /* .splash-left {
   grid-area: "left";
@@ -51,15 +45,15 @@
                       "bottom";
   flex-direction: row;
   /* position: absolute; */
-  /* background-image: url(https://i.imgur.com/N4WM5U4.png); */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* background-size: contain; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-  /* justify-content: space-between; */
+/* background-image: url(https://i.imgur.com/N4WM5U4.png); */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+/* background-size: contain; */
+/* width: 100%; */
+/* height: 100%; */
+/* flex-wrap: wrap; */
+/* justify-content: center; */
+/* justify-content: space-between; */
 /* } */
 /* .left-bottom {
 
@@ -77,20 +71,18 @@ background: aqua;
  margin: 10px;
 } */
 
-
- .native img {
-   grid-area: "top";
-position: absolute;
+.native img {
+  grid-area: "top";
+  position: absolute;
   width: 100%;
   height: 50%;
-  background-color:black;
+  background-color: black;
   /* background-image: url(https://i.imgur.com/ZhLRTeO.png); */
   background-color: black;
   box-shadow: 1px 1px 5px rgb(65 65 65);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .curlyB img {
@@ -106,37 +98,35 @@ position: absolute;
   width: 100%;
   height: 50%;
 
-
   /* background-image:url(https://i.imgur.com/N4WM5U4.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
-
-
   /* background-color: blue;
   box-shadow: 1px 1px 5px rgb(65 65 65); */
-
 }
 
 .welcome-text {
   position: absolute;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    font-size: 12px;
-    padding: 10px;
-    color: azure;
+  justify-self: center;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  color: azure;
 }
 
 .splash-buttons {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 44%;
-    justify-self: center;
-
-  }
-  .splash-buttons > *{
+  align-items: space-between;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 45.5%;
+  justify-self: center;
+  align-content: space-between;
+}
+.splash-buttons > * {
   font-family: "Roboto", san-serif;
 }
 
@@ -147,6 +137,4 @@ position: absolute;
 }
 .splash-buttons > button:hover {
   box-shadow: 4px 4px 20px -4px black;
-
-
 }
