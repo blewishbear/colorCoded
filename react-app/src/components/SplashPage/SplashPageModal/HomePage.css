@@ -1,26 +1,66 @@
 .splash-page {
-  padding:0px;
-  margin-top: 150px;
-  margin-left: 12.5%;
-  height: 600px;
-  width: 75%;
-  display: flex;
+  position: relative;
+  padding: 0px;
+  /* margin-top: 150px; */
+  /* margin-left: 12.5%; */
+  height: calc(100% - 100px);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "native totum"
+                        "curlG totum";
   border: 1px solid green;
 }
-
-.splash-left {
-  display: flex;
-  flex-direction: column;
-  /* background-image: url(https://i.imgur.com/N4WM5U4.png); */
+ .home-image {
+  height: 100%;
+  width: 100%;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: contain;
-  width: 50%;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: center;
-  justify-content: space-between;
+  background-repeat: no-repeat;
 }
+.mern {
+  background-size: cover;
+  grid-area: totum;
+  background-image: url(https://i.imgur.com/ZebO85s.png);
+
+}
+.curlyG {
+  background-image: url(https://i.imgur.com/N4WM5U4.png);
+  grid-area: curlG;
+
+}
+.native {
+  grid-area: native;
+  background-image: url(https://i.imgur.com/ZhLRTeO.png);
+  background-color: black;
+  background-size: contain;
+}
+
+
+
+
+
+
+/* .splash-left {
+  grid-area: "left";
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "top"
+                      "bottom";
+  flex-direction: row;
+  /* position: absolute; */
+  /* background-image: url(https://i.imgur.com/N4WM5U4.png); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+/* } */
 /* .left-bottom {
 
   display: flex;
@@ -29,33 +69,22 @@
   justify-content: space-around;
   justify-content: space-between;
 } */
-.splash-page img {
+/* .splash-page img {
 
 border: 2px solid rgb(110, 18, 18);
 border-radius: 10%;
 background: aqua;
  margin: 10px;
-}
+} */
 
- .mern {
+
+ .native img {
+   grid-area: "top";
+position: absolute;
   width: 100%;
-  height: 100%;
+  height: 50%;
   background-color:black;
-  background-image: url(https://i.imgur.com/ZhLRTeO.png);
-  background-color: black;
-  box-shadow: 1px 1px 5px rgb(65 65 65);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-
- .native {
-
-  width: 100%;
-  height: 100%;
-  background-color:black;
-  background-image: url(https://i.imgur.com/ZhLRTeO.png);
+  /* background-image: url(https://i.imgur.com/ZhLRTeO.png); */
   background-color: black;
   box-shadow: 1px 1px 5px rgb(65 65 65);
   background-position: center;
@@ -71,10 +100,14 @@ background: aqua;
   box-shadow: 1px 1px 5px rgb(65 65 65);
 }
 
-.curlyG {
-  background-image:url(https://i.imgur.com/N4WM5U4.png);
+.curlyG img {
+  grid-area: "bottom";
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 50%;
+
+
+  /* background-image:url(https://i.imgur.com/N4WM5U4.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,14 +118,7 @@ background: aqua;
   box-shadow: 1px 1px 5px rgb(65 65 65); */
 
 }
-.splash-right {
-  position: absolute;
-  /* background-image: url(https://i.imgur.com/nVmqbdM.png); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50%;
-}
+
 .welcome-text {
   position: absolute;
     font-family: 'Roboto', sans-serif;
@@ -101,43 +127,26 @@ background: aqua;
     padding: 10px;
     color: azure;
 }
-.login-button {
+
+.splash-buttons {
     position: absolute;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    font-size: 12px;
-    padding: 10px;
-    background-color: white;
-    text-transform: none;
-    border: solid green;
-    border-radius: 10%;
-    width: 30%;
-    z-index: 9;
-    margin-top: 50px;
-    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    top: 44%;
+    justify-self: center;
+
+  }
+  .splash-buttons > *{
+  font-family: "Roboto", san-serif;
 }
 
-.login-button:hover {
-  cursor: pointer;
-  background-color: whitesmoke;
+.splash-buttons > button {
+  box-shadow: 4px 4px 20px -12px;
+  border-radius: 10px;
+  color: orange;
 }
+.splash-buttons > button:hover {
+  box-shadow: 4px 4px 20px -4px black;
 
-.sign__up-button {
-  position: absolute;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  font-size: 12px;
-  padding: 10px;
-  background-color: white;
-  text-transform: none;
-  border: solid green;
-  border-radius: 10%;
-  width: 25%;
-  z-index: 9;
-  margin-top: 50px;
-  margin-left: 100%;
-}
-.login-button:hover {
-  cursor: pointer;
-  background-color: whitesmoke;
+
 }

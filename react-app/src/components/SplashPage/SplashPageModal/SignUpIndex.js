@@ -23,9 +23,9 @@ function SignUpFormDialog(props) {
   return (
     <>
       {!props.authenticated && (
-        <div className="sign__up-button" onClick={handleClickOpen}>
+        <button className="sign__up-button" onClick={handleClickOpen}>
           Sign Up
-        </div>
+        </button>
       )}
       <Dialog open={open} onClose={handleClose}>
         <DialogContent

@@ -18,12 +18,12 @@ function LoginFormDialog(props) {
   return (
     <>
       {!props.authenticated && (
-        <div
+        <button
           className="login-button"
           onClick={handleClickOpen}
-        >Log In</div>
+        >Log In</button>
         )}
-        <div className="welcome-text">Welcome to Color Coded Tees!</div>
+        <div>Welcome to Color Coded Tees!</div>
       <Dialog
         open={open}
         onClose={handleClose}
