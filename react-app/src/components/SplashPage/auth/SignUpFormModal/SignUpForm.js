@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../../../services/auth';
 import { useUser } from '../../../../context/UserContext'
 import "./SignUpForm.css";
@@ -11,6 +11,7 @@ const SignUpForm = ({authenticated, setAuthenticated, onClose}) => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const { user, setUser } = useUser()
+  const history = useHistory()
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -21,6 +22,8 @@ const SignUpForm = ({authenticated, setAuthenticated, onClose}) => {
         setUser(user)
       }
     }
+    history.push('/t-shirts')
+
   };
 
   const updateUsername = (e) => {

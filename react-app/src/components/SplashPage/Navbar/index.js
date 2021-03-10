@@ -1,18 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-
 import UserMenu from "./UserMenu";
 
+import { useUser } from "../../../context/UserContext";
 import "./NavBar.css";
 import { cartState } from "../../../Atoms";
 import CartView from "../../Cart/CartView";
 const logo = require("../../../assets/colorCodedTeesLogo.png");
 
-
-
 const NavBar = ({ authenticated, setAuthenticated }) => {
-  const cart = useRecoilValue(cartState)
+  const cart = useRecoilValue(cartState);
 
   return (
     <header className="nav-overlay">
@@ -26,12 +24,14 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
 
           <div className="navbar__center">
             <a href="https://github.com/blewishbear">
-            <i className="fab fa-github-square"></i>
+              <i className="fab fa-github-square"></i>
             </a>
             <a href="https://www.linkedin.com/in/mathias-anderson-42167b137/">
-            <i className="fab fa-linkedin"></i></a>
+              <i className="fab fa-linkedin"></i>
+            </a>
             <a href="https://angel.co/u/mathias-anderson">
-            <i className="fab fa-angellist"></i></a>
+              <i className="fab fa-angellist"></i>
+            </a>
           </div>
 
           <div className="navbar__right">

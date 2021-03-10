@@ -28,6 +28,7 @@
 .curlyG {
   background-image: url(https://i.imgur.com/N4WM5U4.png);
   grid-area: curlG;
+  background-color: #e0e02a;
 }
 .native {
   grid-area: native;
@@ -112,7 +113,7 @@ background: aqua;
   justify-self: center;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  font-size: 20px;
+  font-size: 35px;
   padding: 10px;
   color: azure;
 }
@@ -134,6 +135,7 @@ background: aqua;
   box-shadow: 4px 4px 20px -12px;
   border-radius: 10px;
   color: orange;
+  background-color: black;
 }
 .splash-buttons > button:hover {
   box-shadow: 4px 4px 20px -4px black;

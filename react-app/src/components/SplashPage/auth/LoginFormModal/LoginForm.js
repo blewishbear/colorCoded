@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../../../services/auth";
 import {useUser} from "../../../../context/UserContext"
 import "./LoginForm.css"
+import { Redirect, useHistory } from "react-router-dom";
 
 
 const LoginForm = ({ onClose }) => {
@@ -9,6 +10,7 @@ const LoginForm = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const{ setUser, setAuthenticated } = useUser();
   const [password, setPassword] = useState("");
+  const history = useHistory()
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -20,6 +22,8 @@ const LoginForm = ({ onClose }) => {
     } else {
       setErrors(userResponse.errors);
     }
+    history.push('/t-shirts')
+
   };
   const onLoginDemo = async (e) => {
     e.preventDefault();
@@ -31,6 +35,7 @@ const LoginForm = ({ onClose }) => {
     } else {
       setErrors(userResponse.errors);
     }
+    history.push('/t-shirts')
   };
 
   const updateEmail = (e) => {
