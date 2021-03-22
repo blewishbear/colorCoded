@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { cartState, productsState, ideaState, dapState } from "./Atoms"
 import NavBar from "./components/SplashPage/Navbar/index.js";
-// import ProtectedRoute from "./components/SplashPage/auth/ProtectedRoute";
-
-// import { authenticate } from "./services/auth";
 import ProductListing from "./components/Products/ProductListing.js";
-// import UsersList from "./components/UsersList.js";
 import IdeasFeed from "./components/Ideas/IdeasFeed.js";
 import { useUser } from "./context/UserContext.js";
+import { cartState, productsState, ideaState, dapState } from "./Atoms"
 import CreateIdeaForm from "./components/Ideas/CreateIdeaForm.js";
 import CartView from "./components/Cart/CartView.js";
 import HomePage from "./components/SplashPage/SplashPageModal/HomePage";
@@ -75,22 +71,7 @@ function App() {
   }, []);
 
 
-  // const [authenticated, setAuthenticated] = useState(false);
-  // const [loaded, setLoaded] = useState(false);
 
-  // useEffect(() => {
-  //   (async() => {
-  //     const user = await authenticate();
-  //     if (!user.errors) {
-  //       setAuthenticated(true);
-  //     }
-  //     setLoaded(true);
-  //   })();
-  // }, []);
-
-  // if (!loaded) {
-  //   return null;
-  // }
   const { authenticated, setAuthenticated } = useUser();
 
   return loaded && (
@@ -102,11 +83,9 @@ function App() {
       />
       <Switch>
         <Route path="/" exact={true}>
-          {/* <ProductListing setCartCount={setCartCount} /> */}
 
           <HomePage />
         </Route>
-        {/* <ProductListing /> */}
 
         <Route path="/t-shirts">
           <ProductListing setCartCount={setCartCount} />
@@ -124,30 +103,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-// return (
-//   <BrowserRouter>
-//     <NavBar setAuthenticated={setAuthenticated} />
-//     <Route path="/login" exact={true}>
-//       <LoginForm
-//         authenticated={authenticated}
-//         setAuthenticated={setAuthenticated}
-//       />
-//     </Route>
-//     <Route path="/sign-up" exact={true}>
-//       <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
-//     </Route>
-//     <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-//       <UsersList/>
-//     </ProtectedRoute>
-//     <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-//       <User />
-//     </ProtectedRoute>
-//     <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-//       <h1>My Home Page</h1>
-//     </ProtectedRoute>
-//   </BrowserRouter>
-// );
-// }
 
 export default App;

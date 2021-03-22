@@ -57,7 +57,7 @@ const LoginForm = ({ onClose }) => {
       </div>
       <div className="login__form-input">
         <div>
-          {/* <label htmlFor="email">Email</label> */}
+          
           <input
             name="email"
             type="text"
@@ -67,7 +67,7 @@ const LoginForm = ({ onClose }) => {
           />
         </div>
         <div>
-          {/* <label htmlFor="password">Password</label> */}
+
           <input
             name="password"
             type="password"

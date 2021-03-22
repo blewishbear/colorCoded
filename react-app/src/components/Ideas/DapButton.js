@@ -4,7 +4,6 @@ import { ideaState, dapState } from "../../Atoms";
 import { useUser } from "../../context/UserContext";
 import "./Idea.css";
 export default function DapButton({ idea }) {
-  const [ideas, setIdeas] = useRecoilState(ideaState);
   const [dapsByIdea, setDapsByIdea] = useState([]);
   const [daps, setDaps] = useRecoilState(dapState);
   const [loaded, setLoaded] = useState(false);

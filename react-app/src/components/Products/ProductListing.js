@@ -1,4 +1,3 @@
-// import { responsiveFontSizes } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import {useRecoilState} from "recoil"
 import { productsState } from "../../Atoms";
@@ -7,15 +6,7 @@ import ProductCard from "./ProductCard";
 
 const ProductListing = ({setCartCount}) => {
   const [products, setProducts ]= useRecoilState(productsState)
-    // const [cart, setCart] = useState(
-  //   localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {}
-  // );
 
-
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-
-  // }, [cart])
 
   return (
     <div className="product__listing-wrapper">

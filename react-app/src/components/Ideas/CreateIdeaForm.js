@@ -40,7 +40,7 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
-  
+
   if (!user || user.errors) {
     return (
       <>
@@ -77,6 +77,4 @@ const CreateIdeaForm = ({ setIdeas, onClose }) => {
 
 export default CreateIdeaForm;
 
-// })()
-// },[])
-// }
+

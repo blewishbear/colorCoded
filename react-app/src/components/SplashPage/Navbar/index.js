@@ -35,9 +35,9 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
           </div>
 
           <div className="navbar__right">
-            {/* add user auth to this component when made */}
+
             <Link className="nav-btn" to="/t-shirts">
-              {/* <h1>Home</h1>{" "} */}
+             
             </Link>
             <Link className="nav-btn" to="/t-shirts">
               <h1>T-Shirt Shop</h1>{" "}
